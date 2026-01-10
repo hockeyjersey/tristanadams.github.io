@@ -70,9 +70,18 @@ nav.top-nav .right-links {
   display: flex;
 }
 
-nav.top-nav a {
-  margin: 0 15px; /* space between links */
+nav.top-nav .left-links a {
+  margin-right: 8px;  /* space between left links */
 }
+
+nav.top-nav .right-links a {
+  margin-left: 8px;   /* space between right links */
+}
+
+nav.top-nav .right-links a:last-child {
+  margin-right: 0;     /* no extra margin after last right link */
+}
+
     
     p {
       margin-bottom: 20px;
