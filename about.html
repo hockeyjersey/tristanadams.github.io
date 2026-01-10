@@ -54,29 +54,32 @@
 
 nav.top-nav {
   display: flex;
-  justify-content: space-between; /* pushes left and right to opposite sides */
+  justify-content: space-between; /* pushes left and right groups to edges */
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: #ff64f1;
-  padding: 10px 40px; /* small padding, remove side padding */
+  padding: 10px 40px; /* keeps space from page edges */
   z-index: 1000;
 }
 
+nav.top-nav .left-links,
+nav.top-nav .right-links {
+  display: flex; /* makes each group tight */
+}
+
 nav.top-nav .left-links a {
-  margin-right: 8px;  /* space between left links */
+  margin-right: 8px; /* space between left links */
 }
 
 nav.top-nav .right-links a {
-  margin-left: 0;  /* remove space before the first link */
+  margin-right: 8px; /* space between right links */
 }
 
-nav.top-nav .right-links a + a {
-  margin-left: 8px; /* 8px only between links */
-}
-    
+nav.top-nav .right-links a:last-child {
+  margin-right: 0; /* remove extra margin after last link */
 }
 
     p {
