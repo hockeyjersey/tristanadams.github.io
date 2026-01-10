@@ -52,6 +52,50 @@ nav a.current {
   text-decoration: underline;
     }
 
+nav.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ff64f1;
+  padding: 10px 40px;
+  z-index: 1000;
+}
+
+nav.top-nav .left-links,
+nav.top-nav .right-links {
+  display: flex;
+}
+
+nav.top-nav .left-links a {
+  margin-right: 8px;
+}
+
+nav.top-nav .right-links a {
+  margin-right: 8px;
+}
+
+nav.top-nav .right-links a:last-child {
+  margin-right: 0;
+}
+
+nav.top-nav a {
+  text-decoration: none;
+  color: blue;
+  font-weight: normal;
+}
+
+nav.top-nav a:hover {
+  opacity: 0.6;
+}
+
+nav.top-nav a.current {
+  text-decoration: underline;
+}
+    
     p {
       margin-bottom: 20px;
       line-height: 1.5;
@@ -61,16 +105,21 @@ nav a.current {
 
 <body>
 
-  <nav>
-    <a href="index.html">home</a>
+<nav class="top-nav">
+  <div class="left-links">
+    <a href="index.html" class="current">home</a>
     <a href="editorial.html">editorial</a>
     <a href="journal.html">journal</a>
     <a href="publication.html">publication</a>
-    <a href="video.html" class="current">video</a>
+    <a href="video.html">video</a>
     <a href="objects.html">objects</a>
+  </div>
+
+  <div class="right-links">
     <a href="about.html">about</a>
     <a href="contact.html">contact</a>
-  </nav>
+  </div>
+</nav>
 
   <section>
     <h2>video</h2>
