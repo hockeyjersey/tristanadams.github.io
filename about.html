@@ -70,11 +70,13 @@ nav.top-nav .left-links a {
 }
 
 nav.top-nav .right-links a {
-  margin-left: 8px;   /* space between right links */
+  margin-left: 0;  /* remove space before the first link */
 }
 
-nav.top-nav .right-links a:last-child {
-  margin-right: 0;     /* no extra margin after last right link */
+nav.top-nav .right-links a + a {
+  margin-left: 8px; /* 8px only between links */
+}
+    
 }
 
     p {
