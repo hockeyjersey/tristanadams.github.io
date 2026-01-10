@@ -52,6 +52,28 @@
   text-decoration: underline;
     }
 
+nav.top-nav {
+  display: flex;
+  justify-content: space-between; /* pushes left and right to opposite sides */
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #ff64f1;
+  padding: 10px 0; /* small padding, remove side padding */
+  z-index: 1000;
+}
+
+nav.top-nav .left-links,
+nav.top-nav .right-links {
+  display: flex;
+}
+
+nav.top-nav a {
+  margin: 0 15px; /* space between links */
+}
+    
     p {
       margin-bottom: 20px;
       line-height: 1.5;
