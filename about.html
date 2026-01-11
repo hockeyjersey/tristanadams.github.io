@@ -82,13 +82,13 @@ nav.top-nav .right-links a:last-child {
   margin-right: 0; /* remove extra margin after last link */
 }
 
-.about::after {
+.about-main::after {
   content: "";
   display: block;
   width: 100%;
   height: 1px;
   background: blue;
-  margin-top: 40px;
+  margin: 40px 0;
 }
     
     p {
@@ -116,16 +116,27 @@ nav.top-nav .right-links a:last-child {
   </div>
 </nav>
 
-  <section> class="about">
-    <p>tristan adams<br>
+ <section class="about">
+  <div class="about-main">
+    <p>
+      tristan adams<br>
       photographer and artist<br><br>
       born july 2007, wa<br>
       based in los angeles, ca<br><br>
       rmit school of art, vic<br>
       class of '28
-        
-</p>
-  </section>
+    </p>
+  </div>
+
+  <div class="awards">
+    <p>
+      awards<br>
+      2024 — example award name<br>
+      2023 — another award
+    </p>
+  </div>
+</section>
+
 
 </body>
 </html>
