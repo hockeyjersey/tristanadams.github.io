@@ -95,6 +95,38 @@ nav.top-nav a:hover {
 nav.top-nav a.current {
   text-decoration: underline;
 }
+
+<section class="editorial-gallery">
+  <img src="images/photo1.jpg" alt="Photo 1">
+  <img src="images/photo2.jpg" alt="Photo 2">
+  <img src="images/photo3.jpg" alt="Photo 3">
+  <img src="images/photo4.jpg" alt="Photo 4">
+</section>
+
+    .editorial-gallery {
+  margin-top: 100px; /* spacing below the fixed nav */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.editorial-gallery img {
+  height: 300px;      /* all images same height */
+  width: auto;        /* keep aspect ratio */
+  object-fit: cover;  /* crops if image is too wide */
+  flex-grow: 1;       /* images expand evenly */
+}
+
+@media (max-width: 600px) {
+  .editorial-gallery {
+    flex-direction: column; /* stack images on mobile */
+  }
+  .editorial-gallery img {
+    width: 100%;
+    height: auto;
+  }
+}
     
     p {
       margin-bottom: 20px;
