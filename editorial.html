@@ -104,18 +104,19 @@ nav.top-nav a.current {
 }
 
 .editorial-gallery {
-  display: flex;          /* make images go in a row */
-  flex-wrap: wrap;        /* wrap to next line if too many */
-  gap: 20px;              /* space between images */
-  justify-content: space-between;  /* spread evenly */
-  margin-top: 100px;      /* space below nav */
+  display: flex;
+  flex-wrap: wrap;           /* wrap to next row if too many images */
+  gap: 20px;                 /* space between images */
+  padding: 120px 40px 40px 40px; /* spacing below nav */
+  background: #ff64f1;
 }
 
 .editorial-gallery img {
-  height: 300px;          /* uniform height */
-  width: auto;            /* keep original aspect ratio */
-  object-fit: contain;      /* crop if necessary to fill height */
-  flex-grow: 1;           /* expand evenly in the row */
+  height: 300px;             /* uniform height */
+  width: auto;               /* maintain aspect ratio */
+  object-fit: contain;       /* show full image, no cropping */
+  flex: 1 1 auto;            /* let images grow evenly in the row */
+  background: #ff64f1;       /* fill any extra space */
 }
 
 @media (max-width: 600px) {
