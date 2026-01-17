@@ -47,7 +47,6 @@ body {
   scrollbar-width: thin;                /* makes it smaller */
   scrollbar-color: blue #ff64f1;       /* thumb color, track color */
 }
-
     
 body, html {
   overflow-y: hidden;  /* disables vertical scrolling */
@@ -74,8 +73,7 @@ body, html {
     }
 
     section {
-      padding: 80px 0;
-      
+      padding: 80px 0;      
     }
 
     section h2 {
@@ -132,7 +130,6 @@ nav.top-nav a.current {
   text-decoration: underline;
 }
 
-
 .editorial-gallery {
   display: flex;
   gap: 20px;
@@ -149,7 +146,6 @@ nav.top-nav a.current {
   object-fit: cover;  /* crop if needed to fill height */
   flex: 1 1 auto;     /* images expand evenly to fill row */
 }
-
     
 @media (max-width: 600px) {
   .editorial-gallery {
@@ -201,20 +197,6 @@ nav.top-nav a.current {
 #nav-left { left: 20px; }
 #nav-right { right: 20px; }
   
-/* Close button - fixed at top-right of viewport */
-#close-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 25px;         /* smaller cross */
-  color: blue;             /* match text */
-  background: transparent; 
-  padding: 3px 6px;
-  border-radius: 2px;
-  cursor: pointer;
-  z-index: 2100;           /* above everything */
-}
-
 /* Make gallery images clickable */
 .editorial-gallery img {
   cursor: pointer;
