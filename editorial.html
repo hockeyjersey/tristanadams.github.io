@@ -111,20 +111,21 @@ nav.top-nav a.current {
   text-decoration: underline;
 }
 
+
 .editorial-gallery {
   display: flex;
-  gap: 20px;               /* space between images */
-  padding: 120px 0px 40px 0px;
-  justify-content: space-between; /* spreads images evenly */
+  gap: 20px;
+  padding: 120px 40px 40px 40px;  /* keep top & side spacing */
+  justify-content: flex-start;     /* images start at left */
+  flex-wrap: nowrap;               /* one row */
 }
 
 .editorial-gallery img {
-  height: 300px;           /* uniform height */
-  width: auto;             /* keep original proportions */
-  flex: 1 1 auto;          /* allows images to shrink to fit the row */
-  object-fit: contain;     /* keeps the full image visible */
+  height: 300px;       /* same height */
+  width: auto;         /* natural width */
+  object-fit: contain; /* keep whole image visible */
 }
-
+    
 @media (max-width: 600px) {
   .editorial-gallery {
     flex-direction: column;  /* stack images on mobile */
