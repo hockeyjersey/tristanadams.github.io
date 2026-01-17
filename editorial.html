@@ -76,16 +76,20 @@ function closeLightbox() {
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
     
-/* -------------------- Scrollbar Styles -------------------- */
+body {
+  /* force scrollbar space to always show */
+  overflow-y: scroll;   /* always show vertical scrollbar */
+  overflow-x: auto;     /* horizontal scrollbar only if needed */
+}
 
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-  width: 6px;       /* vertical scrollbar thickness */
-  height: 6px;      /* horizontal scrollbar thickness */
+  width: 6px;          /* vertical scrollbar thickness */
+  height: 6px;         /* horizontal scrollbar thickness */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: blue; /* same as your text color */
+  background-color: blue; /* your text color */
   border-radius: 0;       /* square edges */
 }
 
@@ -98,6 +102,7 @@ function closeLightbox() {
   scrollbar-width: thin;                /* makes it smaller */
   scrollbar-color: blue #ff64f1;       /* thumb color, track color */
 }
+
     
 body, html {
   overflow-y: hidden;  /* disables vertical scrolling */
