@@ -182,23 +182,37 @@ nav.top-nav a.current {
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-/* Left/right navigation */
+/* Left/right navigation - fixed on the sides of the screen */
 #nav-left, #nav-right {
-  font-size: 30px;          /* smaller than 50px */
-  padding: 5px;             /* less padding */
-  background: rgba(0,0,0,0.1); /* lighter background for minimal look */
-  color: blue;              /* match your text color */
+  position: fixed;         /* keep them in place */
+  top: 50%;                /* vertical center of viewport */
+  transform: translateY(-50%); 
+  font-size: 30px;         /* smaller arrows */
+  color: blue;             /* match text color */
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 10px;       /* minimal padding */
+  background: rgba(0,0,0,0.1); /* subtle background */
+  border-radius: 3px;
+  z-index: 2100;           /* above the lightbox image */
 }
 
-/* Close button */
+/* Left/right positions */
+#nav-left { left: 20px; }
+#nav-right { right: 20px; }
+  
+/* Close button - fixed at top-right of viewport */
 #close-btn {
-  font-size: 25px;          /* smaller than 40px */
-  top: 15px;                /* adjust positioning */
+  position: fixed;
+  top: 20px;
   right: 20px;
-  color: blue;              /* match your text color */
-  background: rgba(0,0,0,0.1); /* subtle background */
-  padding: 2px 6px;         /* small padding */
-  border-radius: 2px;       /* tiny rounded corners */
+  font-size: 25px;         /* smaller cross */
+  color: blue;             /* match text */
+  background: rgba(0,0,0,0.1); 
+  padding: 3px 6px;
+  border-radius: 2px;
+  cursor: pointer;
+  z-index: 2100;           /* above everything */
 }
 
 /* Make gallery images clickable */
