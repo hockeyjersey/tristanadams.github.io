@@ -105,19 +105,19 @@ nav.top-nav a.current {
 
 .editorial-gallery {
   display: flex;
-  gap: 20px;           /* space between images */
+  flex-wrap: wrap;           /* moves extra images to next line if needed */
+  gap: 20px;                 /* space between images */
   padding: 120px 40px 40px 40px;
-  overflow-x: auto;    /* lets row scroll if too wide for screen */
-  white-space: nowrap; /* prevents images from wrapping */
+  justify-content: flex-start; /* align images to left */
 }
 
 .editorial-gallery img {
-  height: 300px;       /* uniform height */
-  width: auto;         /* keep original aspect ratio */
-  object-fit: contain; /* show full image, no cropping */
-  flex: 0 0 auto;      /* prevent shrinking or growing */
-  background: #ff64f1; /* optional: fills empty space */
+  height: 300px;             /* all images same height */
+  width: auto;               /* keep original aspect ratio */
+  object-fit: contain;       /* show full image, no cropping */
+  background: #ff64f1;       /* optional: fills extra space */
 }
+
 
 @media (max-width: 600px) {
   .editorial-gallery {
