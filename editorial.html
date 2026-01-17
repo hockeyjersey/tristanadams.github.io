@@ -75,27 +75,28 @@ function closeLightbox() {
   max-height: 90%;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
-
     
+/* -------------------- Scrollbar Styles -------------------- */
+
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;       /* vertical scrollbar thickness */
+  height: 6px;      /* horizontal scrollbar thickness */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: blue;
-  border-radius: 0; 
+  background-color: blue; /* same as your text color */
+  border-radius: 0;       /* square edges */
 }
 
 ::-webkit-scrollbar-track {
-  background: #ff64f1;
+  background: #ff64f1;    /* same as your background */
 }
 
 /* Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: blue #ff64f1;
+  scrollbar-width: thin;                /* makes it smaller */
+  scrollbar-color: blue #ff64f1;       /* thumb color, track color */
 }
     
 body, html {
