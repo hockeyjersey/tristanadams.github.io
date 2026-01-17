@@ -105,18 +105,18 @@ nav.top-nav a.current {
 
 .editorial-gallery {
   display: flex;
-  flex-wrap: wrap;           /* wrap to next row if too many images */
-  gap: 20px;                 /* space between images */
-  padding: 120px 40px 40px 40px; /* spacing below nav */
-  background: #ff64f1;
+  gap: 20px;           /* space between images */
+  padding: 120px 40px 40px 40px;
+  overflow-x: auto;    /* lets row scroll if too wide for screen */
+  white-space: nowrap; /* prevents images from wrapping */
 }
 
 .editorial-gallery img {
-  height: 300px;             /* uniform height */
-  width: auto;               /* maintain aspect ratio */
-  object-fit: contain;       /* show full image, no cropping */
-  flex: 1 1 auto;            /* let images grow evenly in the row */
-  background: #ff64f1;       /* fill any extra space */
+  height: 300px;       /* uniform height */
+  width: auto;         /* keep original aspect ratio */
+  object-fit: contain; /* show full image, no cropping */
+  flex: 0 0 auto;      /* prevent shrinking or growing */
+  background: #ff64f1; /* optional: fills empty space */
 }
 
 @media (max-width: 600px) {
