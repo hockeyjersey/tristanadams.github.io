@@ -103,24 +103,24 @@ nav.top-nav a.current {
   <img src="images/photo4.jpg" alt="Photo 4">
 </section>
 
-    .editorial-gallery {
-  margin-top: 100px; /* spacing below the fixed nav */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
+.editorial-gallery {
+  display: flex;          /* make images go in a row */
+  flex-wrap: wrap;        /* wrap to next line if too many */
+  gap: 20px;              /* space between images */
+  justify-content: space-between;  /* spread evenly */
+  margin-top: 100px;      /* space below nav */
 }
 
 .editorial-gallery img {
-  height: 300px;      /* all images same height */
-  width: auto;        /* keep aspect ratio */
-  object-fit: cover;  /* crops if image is too wide */
-  flex-grow: 1;       /* images expand evenly */
+  height: 300px;          /* uniform height */
+  width: auto;            /* keep original aspect ratio */
+  object-fit: cover;      /* crop if necessary to fill height */
+  flex-grow: 1;           /* expand evenly in the row */
 }
 
 @media (max-width: 600px) {
   .editorial-gallery {
-    flex-direction: column; /* stack images on mobile */
+    flex-direction: column;  /* stack images on mobile */
   }
   .editorial-gallery img {
     width: 100%;
