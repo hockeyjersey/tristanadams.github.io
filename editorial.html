@@ -18,44 +18,6 @@
   <img src="folder/rpf1.jpg" alt="Photo 9">
   <img src="folder/rpf2.jpg" alt="Photo 10">
 </section>
-
-<div id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="">
-</div>
-
-<script>
-const galleryImages = document.querySelectorAll('.editorial-gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-let currentIndex = 0;
-
-// Open lightbox
-galleryImages.forEach((img, index) => {
-  img.addEventListener('click', () => {
-    currentIndex = index;
-    lightbox.style.display = 'flex';
-    lightboxImg.src = img.src;
-  });
-});
-
-// Close lightbox when clicking outside image
-function closeLightbox() {
-  lightbox.style.display = 'none';
-}
-
-// Navigate left/right
-lightbox.addEventListener('click', (e) => {
-  const width = window.innerWidth;
-  if (e.clientX < width / 2) {
-    // Clicked left → previous
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  } else {
-    // Clicked right → next
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-  }
-  lightboxImg.src = galleryImages[currentIndex].src;
-});
-</script> 
   
   <style>
     body {
@@ -212,7 +174,112 @@ nav.top-nav a.current {
     height: auto;
   }
 }
-    
+
+<!-- Lightbox container -->
+<div id="lightbox">
+  <span id="close-btn">&times;</span>
+  <img id="lightbox-img" src="">
+  <div id="nav-left">&#10094;</div>
+  <div id="nav-right">&#10095;</div>
+</div>
+
+    /* Lightbox overlay */
+#lightbox {
+  display: none;               /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Lightbox image */
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Left/right navigation */
+#nav-left, #nav-right {
+  position: fixed;
+  top: 50%;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+  padding: 10px;
+  background: rgba(0,0,0,0.2);
+}
+#nav-left { left: 20px; }
+#nav-right { right: 20px; }
+
+/* Close button */
+#close-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Make gallery images clickable */
+.editorial-gallery img {
+  cursor: pointer;
+}
+
+    <script>
+const galleryImages = document.querySelectorAll('.editorial-gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('close-btn');
+const navLeft = document.getElementById('nav-left');
+const navRight = document.getElementById('nav-right');
+
+let currentIndex = 0;
+
+// Open lightbox
+galleryImages.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+// Close lightbox
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+// Navigate left
+navLeft.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex].src;
+});
+
+// Navigate right
+navRight.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex].src;
+});
+
+// Close by clicking outside the image
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+</script>
+  
     p {
       margin-bottom: 20px;
       line-height: 1.5;
