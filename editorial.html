@@ -244,43 +244,49 @@ nav.top-nav a.current {
     <div id="nav-right">&#10095;</div>
   </div>
 
-    <!-- JS -->
-<script>
-const galleryImages = document.querySelectorAll('.editorial-gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const navLeft = document.getElementById('nav-left');
-const navRight = document.getElementById('nav-right');
-
-let currentIndex = 0;
-
-galleryImages.forEach((img, index) => {
-  img.addEventListener('click', () => {
-    currentIndex = index;
-    lightbox.style.display = 'flex';
-    lightboxImg.src = img.src;
-  });
-});
-
-navLeft.addEventListener('click', (e) => {
-  e.stopPropagation();
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentIndex].src;
-});
-
-navRight.addEventListener('click', (e) => {
-  e.stopPropagation();
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentIndex].src;
-});
-
-// click outside image to close
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
-    lightbox.style.display = 'none';
-  }
-});
+  <!-- JS -->
   <script>
+    const galleryImages = document.querySelectorAll('.editorial-gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('close-btn');
+    const navLeft = document.getElementById('nav-left');
+    const navRight = document.getElementById('nav-right');
+    let currentIndex = 0;
+
+    // Open lightbox
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    // Close lightbox
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    // Navigate left
+    navLeft.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    });
+
+    // Navigate right
+    navRight.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    });
+
+    // Close by clicking outside image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+  </script>
   
 </body>
 </html>
