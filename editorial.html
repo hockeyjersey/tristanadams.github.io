@@ -105,19 +105,17 @@ nav.top-nav a.current {
 
 .editorial-gallery {
   display: flex;
-  flex-wrap: wrap;           /* moves extra images to next line if needed */
-  gap: 20px;                 /* space between images */
+  gap: 20px;               /* space between images */
   padding: 120px 40px 40px 40px;
-  justify-content: flex-start; /* align images to left */
+  justify-content: space-between; /* spreads images evenly */
 }
 
 .editorial-gallery img {
-  height: 300px;             /* all images same height */
-  width: auto;               /* keep original aspect ratio */
-  object-fit: contain;       /* show full image, no cropping */
-  background: #ff64f1;       /* optional: fills extra space */
+  height: 300px;           /* uniform height */
+  width: auto;             /* keep original proportions */
+  flex: 1 1 auto;          /* allows images to shrink to fit the row */
+  object-fit: contain;     /* keeps the full image visible */
 }
-
 
 @media (max-width: 600px) {
   .editorial-gallery {
