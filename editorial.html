@@ -158,7 +158,7 @@ nav.top-nav a.current {
 }
 
 #lightbox {
-  display: none;
+  display: none;               /* hidden initially */
   position: fixed;
   top: 0;
   left: 0;
@@ -174,19 +174,20 @@ nav.top-nav a.current {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
-  z-index: 1; /* make sure image is below arrows */
+  z-index: 1;  /* image is below arrows */
+  pointer-events: none; /* this makes clicks pass through the image */
 }
 
 #nav-left, #nav-right {
-  position: fixed; /* fixed keeps them in place regardless of image */
+  position: fixed;      /* fixed keeps them in place */
   top: 50%;
-  font-size: 40px; /* you can make smaller if you want minimal */
+  font-size: 40px;
   color: white;
   cursor: pointer;
   user-select: none;
   transform: translateY(-50%);
-  z-index: 10; /* higher than image so clicks work */
-  padding: 0 10px; /* optional for easier clicking */
+  z-index: 10;          /* above image */
+  padding: 10px;        /* easier to click */
 }
 
 #nav-left { left: 20px; }
