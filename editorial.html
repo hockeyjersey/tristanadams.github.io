@@ -15,6 +15,27 @@
   <img src="folder/rpf1.jpg" alt="Photo 7">
   <img src="folder/rpf1.jpg" alt="Photo 8">
 </section>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+const galleryImages = document.querySelectorAll('.editorial-gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+galleryImages.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+function closeLightbox() {
+  lightbox.style.display = 'none';
+}
+</script>  
   
   <style>
     body {
@@ -27,6 +48,26 @@
       text-transform: lowercase;
     }
 
+#lightbox {
+  display: none;           /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+    
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 8px;
