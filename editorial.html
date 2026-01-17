@@ -114,16 +114,18 @@ nav.top-nav a.current {
 .editorial-gallery {
   display: flex;
   gap: 20px;
-  padding: 120px 0px 40px 0px; /* keep space from top & sides */
-  justify-content: flex-start;    /* make images start at the left */
-  flex-wrap: nowrap;              /* single row */
+  padding: 120px 0px 40px 0px; /* spacing from nav & edges */
+  justify-content: space-between; /* spread images evenly */
+  flex-wrap: nowrap;               /* keep in one row */
+  width: 100vw;                    /* full viewport width */
+  box-sizing: border-box;          /* include padding in width */
 }
 
 .editorial-gallery img {
-  height: 300px;      /* uniform height */
-  width: auto;        /* keep aspect ratio */
-  object-fit: contain; /* don’t crop images */
-  flex-shrink: 0;     /* prevent images from shrinking */
+  height: 300px;
+  width: auto;        /* keep natural aspect ratio */
+  object-fit: cover;  /* crop if needed to fill height */
+  flex: 1 1 auto;     /* images expand evenly to fill row */
 }
 
     
