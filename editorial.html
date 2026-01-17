@@ -157,9 +157,8 @@ nav.top-nav a.current {
   }
 }
 
-    /* Lightbox overlay */
 #lightbox {
-  display: none;               /* hidden by default */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -171,29 +170,25 @@ nav.top-nav a.current {
   z-index: 2000;
 }
 
-/* Lightbox image */
 #lightbox-img {
   max-width: 90%;
   max-height: 90%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  object-fit: contain;
+  z-index: 1; /* make sure image is below arrows */
 }
 
-/* Left/right navigation - fixed on the sides of the screen */
 #nav-left, #nav-right {
-  position: fixed;         /* keep them in place */
-  top: 50%;                /* vertical center of viewport */
-  transform: translateY(-50%); 
-  font-size: 18px;         /* smaller arrows */
-  color: blue;             /* match text color */
+  position: fixed; /* fixed keeps them in place regardless of image */
+  top: 50%;
+  font-size: 40px; /* you can make smaller if you want minimal */
+  color: white;
   cursor: pointer;
   user-select: none;
-  padding: 5px 10px;       /* minimal padding */
-  background: transparent; /* subtle background */
-  border-radius: 3px;
-  z-index: 2100;           /* above the lightbox image */
+  transform: translateY(-50%);
+  z-index: 10; /* higher than image so clicks work */
+  padding: 0 10px; /* optional for easier clicking */
 }
 
-/* Left/right positions */
 #nav-left { left: 20px; }
 #nav-right { right: 20px; }
   
@@ -243,7 +238,6 @@ nav.top-nav a.current {
 
  <!-- Lightbox -->
   <div id="lightbox">
-    <span id="close-btn">&times;</span>
     <img id="lightbox-img" src="">
     <div id="nav-left">&#10094;</div>
     <div id="nav-right">&#10095;</div>
