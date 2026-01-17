@@ -15,6 +15,10 @@
   <img src="folder/rpf1.jpg" alt="Photo 7">
   <img src="folder/rpf1.jpg" alt="Photo 8">
 </section>
+
+body, html {
+  overflow-y: hidden; 
+}
   
   <style>
     body {
@@ -111,16 +115,18 @@ nav.top-nav a.current {
 .editorial-gallery {
   display: flex;
   gap: 20px;
-  padding: 120px 0px 40px 0px;  /* keep top & side spacing */
-  justify-content: flex-start;     /* images start at left */
-  flex-wrap: nowrap;               /* one row */
+  padding: 120px 0px 40px 0px; /* keep space from top & sides */
+  justify-content: flex-start;    /* make images start at the left */
+  flex-wrap: nowrap;              /* single row */
 }
 
 .editorial-gallery img {
-  height: 300px;       /* same height */
-  width: auto;         /* natural width */
-  object-fit: contain; /* keep whole image visible */
+  height: 300px;      /* uniform height */
+  width: auto;        /* keep aspect ratio */
+  object-fit: contain; /* don’t crop images */
+  flex-shrink: 0;     /* prevent images from shrinking */
 }
+
     
 @media (max-width: 600px) {
   .editorial-gallery {
