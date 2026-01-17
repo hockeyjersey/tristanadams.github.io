@@ -47,10 +47,6 @@ function closeLightbox() {
       max-width: 1400px;
       text-transform: lowercase;
     }
-
-body {
-  overflow-x: auto;  /* horizontal scrollbar shows if content is wider than viewport */
-}
     
 #lightbox {
   display: none;           /* hidden by default */
@@ -74,6 +70,11 @@ body {
   max-width: 90%;
   max-height: 90%;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+    body {
+  overflow-y: scroll;  /* always show vertical scrollbar */
+  overflow-x: auto;    /* horizontal scrollbar if needed */
 }
 
     
