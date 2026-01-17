@@ -249,7 +249,6 @@ nav.top-nav a.current {
     const galleryImages = document.querySelectorAll('.editorial-gallery img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('close-btn');
     const navLeft = document.getElementById('nav-left');
     const navRight = document.getElementById('nav-right');
     let currentIndex = 0;
@@ -261,11 +260,6 @@ nav.top-nav a.current {
         lightbox.style.display = 'flex';
         lightboxImg.src = img.src;
       });
-    });
-
-    // Close lightbox
-    closeBtn.addEventListener('click', () => {
-      lightbox.style.display = 'none';
     });
 
     // Navigate left
