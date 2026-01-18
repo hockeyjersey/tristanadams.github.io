@@ -150,8 +150,8 @@ nav.top-nav a.current {
 .editorial-gallery img {
   height: 300px;
   width: auto;        /* keep natural aspect ratio */
-  object-fit: cover;  /* crop if needed to fill height */
-  flex: 1 1 auto;     /* images expand evenly to fill row */
+  object-fit: contain;  /* crop if needed to fill height */
+  flex: 0 0 auto;     /* images expand evenly to fill row */
 }
     
 @media (max-width: 600px) {
