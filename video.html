@@ -16,6 +16,42 @@
       text-transform: lowercase;
     }
 
+/* Make gallery images show clickable cursor */
+.editorial-gallery img {
+  cursor: pointer;
+}
+
+body {
+  /* force scrollbar space to always show */
+  overflow-y: scroll;   /* always show vertical scrollbar */
+  overflow-x: auto;     /* horizontal scrollbar only if needed */
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 4px;          /* vertical scrollbar thickness */
+  height: 4px;         /* horizontal scrollbar thickness */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: blue; /* your text color */
+  border-radius: 0;       /* square edges */
+}
+
+::-webkit-scrollbar-track {
+  background: #ff64f1;    /* same as your background */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;                /* makes it smaller */
+  scrollbar-color: blue #ff64f1;       /* thumb color, track color */
+}
+
+body, html {
+  overflow-y: hidden;  /* disables vertical scrolling */
+}
+
     nav {
       position: fixed;
       top: 0;
@@ -95,6 +131,91 @@ nav.top-nav a:hover {
 nav.top-nav a.current {
   text-decoration: underline;
 }
+
+.editorial-gallery {
+  display: flex;
+  gap: 20px;
+  padding: 120px 0px 40px 0px; /* spacing from nav & edges */
+  justify-content: flex-start; /* spread images evenly */
+  flex-wrap: nowrap;               /* keep in one row */
+  width: 100%;                    /* full viewport width */
+  box-sizing: border-box;          /* include padding in width */
+}
+
+.editorial-gallery img {
+  height: 300px;
+  width: auto;        /* keep natural aspect ratio */
+  object-fit: contain;  /* crop if needed to fill height */
+  flex: 0 0 auto;     /* images expand evenly to fill row */
+}
+
+@media (max-width: 600px) {
+  .editorial-gallery {
+    flex-direction: column;  /* stack images on mobile */
+  }
+  .editorial-gallery img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+#lightbox {
+  display: none;               /* hidden initially */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  z-index: 1;  /* image is below arrows */
+  pointer-events: none; /* this makes clicks pass through the image */
+}
+
+#nav-left, #nav-right {
+  position: fixed;      /* fixed keeps them in place */
+  top: 50%;
+  font-size: 18px;
+  color: blue;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+  z-index: 10;          /* above image */
+  padding: 10px;        /* easier to click */
+}
+
+#nav-left { left: 20px; }
+#nav-right { right: 20px; }
+
+/* Make gallery images clickable */
+.editorial-gallery img {
+  cursor: pointer;
+}
+
+a {
+  color: blue;        /* your normal link color */
+  text-decoration: underline; 
+}
+
+a:visited {
+  color: blue;        /* keeps the same color after clicking */
+}
+
+a:hover {
+  opacity: 0.6;       /* optional: same hover effect as your nav links */
+}
+
+.pdf-section p {
+  margin-top: -10px;
+}
     
     p {
       margin-bottom: 20px;
@@ -121,10 +242,63 @@ nav.top-nav a.current {
   </div>
 </nav>
 
-  <section>
-    <h2>video</h2>
-    <p>embed videos or links here.</p>
-  </section>
+<section class="editorial-gallery">
+  <img src="folder3/sorefront.jpg" alt="Photo 1">
+  <img src="folder3/soreback.jpg" alt="Photo 2">
+  <img src="folder3/antifront.jpg" alt="Photo 3">
+  <img src="folder3/antiback.jpg" alt="Photo 4">
+</section>
+
+ <!-- Lightbox -->
+  <div id="lightbox">
+    <img id="lightbox-img" src="">
+    <div id="nav-left">&#10094;</div>
+    <div id="nav-right">&#10095;</div>
+  </div>
+
+    <!-- JS -->
+  <script>
+    const galleryImages = document.querySelectorAll('.editorial-gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const navLeft = document.getElementById('nav-left');
+    const navRight = document.getElementById('nav-right');
+    let currentIndex = 0;
+
+          // Open lightbox
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+      // Navigate left
+    navLeft.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    });
+
+    // Navigate right
+    navRight.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+    });
+
+    // Close by clicking outside image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+  </script>
+
+<div class="pdf-section"> 
+ <p>left to right:<br><br></p>
+ <p>sore (2025)<br>digital <a href="https://drive.google.com/file/d/1rvRcsDC1mlylHPQOEPsRCtEU4zw9KlZR/view?usp=sharing" target="_blank">PDF</a><br>80 pages</p>
+ <p><br>anti (2026)<br>digital <a href="https://drive.google.com/file/d/1jTUECA-q55rCaciz7aEO4RcLUreYOD6b/view?usp=sharing" target="_blank">PDF</a><br>10 pages</p>
+ </div>
 
 </body>
 </html>
