@@ -20,7 +20,7 @@
 .editorial-gallery img {
   cursor: pointer;
 }
-    
+
 body {
   /* force scrollbar space to always show */
   overflow-y: scroll;   /* always show vertical scrollbar */
@@ -142,7 +142,7 @@ nav.top-nav a.current {
   display: flex;
   gap: 20px;
   padding: 120px 0px 40px 0px; /* spacing from nav & edges */
-  justify-content: space-between; /* spread images evenly */
+  justify-content: flex-start; /* spread images evenly */
   flex-wrap: nowrap;               /* keep in one row */
   width: 100%;                    /* full viewport width */
   box-sizing: border-box;          /* include padding in width */
@@ -152,7 +152,7 @@ nav.top-nav a.current {
   height: 300px;
   width: auto;        /* keep natural aspect ratio */
   object-fit: contain;  /* crop if needed to fill height */
-  flex: 1 1 auto;     /* images expand evenly to fill row */
+  flex: 0 0 auto;     /* images expand evenly to fill row */
 }
     
 @media (max-width: 600px) {
@@ -200,10 +200,27 @@ nav.top-nav a.current {
 
 #nav-left { left: 20px; }
 #nav-right { right: 20px; }
-  
+
 /* Make gallery images clickable */
 .editorial-gallery img {
   cursor: pointer;
+}
+
+a {
+  color: blue;        /* your normal link color */
+  text-decoration: underline; 
+}
+
+a:visited {
+  color: blue;        /* keeps the same color after clicking */
+}
+
+a:hover {
+  opacity: 0.6;       /* optional: same hover effect as your nav links */
+}
+
+.pdf-section p {
+  margin-top: -10px;
 }
     
     p {
@@ -235,7 +252,7 @@ nav.top-nav a.current {
   <img src="folder3/sorefront.jpg" alt="Photo 1">
   <img src="folder4/great.jpg" alt="Photo 2">
 </section>
-
+  
  <!-- Lightbox -->
   <div id="lightbox">
     <img id="lightbox-img" src="">
@@ -282,8 +299,8 @@ nav.top-nav a.current {
   </script>
 
 <div class="pdf-section"> 
- <p>left to right:<br><br></p>
- <p>samaritan (2026)<br>screen print</a><br>$36 aud</p>
+ <p><br>left to right:<br><br></p>
+ <p>i wanna feel like a kid again (2025)<br>single channel <a href="https://drive.google.com/file/d/1rvRcsDC1mlylHPQOEPsRCtEU4zw9KlZR/view?usp=sharing" target="_blank">MP4</a><br>01:16</p>
  <p><br>great (2026)<br>single channel <a href="https://drive.google.com/file/d/14cf5tm0JuV75KuNC9DFSgVYm0Dg-emwB/view?usp=sharing" target="_blank">MP4</a><br>00:36</p>
  </div>
 
