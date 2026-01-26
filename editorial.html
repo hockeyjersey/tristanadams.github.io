@@ -137,6 +137,28 @@ nav.top-nav a.current {
   }
 }
 
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;
+    flex-direction: column;      /* stack left + right groups vertically */
+    align-items: center;         /* center the groups horizontally */
+    padding: 10px 20px;
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: flex;
+    justify-content: center;     /* center links in the row */
+    flex-wrap: wrap;             /* wrap if too long */
+    margin-bottom: 10px;         /* space between left and right group */
+  }
+
+  nav.top-nav a {
+    margin-right: 8px;           /* spacing between links */
+    margin-bottom: 5px;          /* spacing if wrap happens */
+  }
+}
+
 .editorial-gallery {
   display: flex;
   gap: 20px;
