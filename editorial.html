@@ -61,6 +61,13 @@ body {
     overflow-y: auto;
   }
 }
+
+@media (max-width: 600px) {
+  nav {
+    position: static;
+    top: auto;
+  }
+}
   
     nav {
       position: fixed;
@@ -236,13 +243,6 @@ nav.top-nav a.current {
   nav.top-nav a {
     margin-right: 8px;            /* spacing between links */
     margin-bottom: 5px;           /* spacing for wrapping */
-  }
-}
-
-@media (max-width: 600px) {
-  nav {
-    position: static;
-    top: auto;
   }
 }
     
