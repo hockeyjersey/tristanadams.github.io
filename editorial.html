@@ -139,23 +139,23 @@ nav.top-nav a.current {
 
 @media (max-width: 600px) {
   nav.top-nav {
-    position: static;
-    flex-direction: column;      /* stack left + right groups vertically */
-    align-items: center;         /* center the groups horizontally */
+    position: static;           /* scrolls normally */
     padding: 10px 20px;
   }
 
+  /* Each group (left + right) stays horizontal but centered */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
     display: flex;
-    justify-content: center;     /* center links in the row */
-    flex-wrap: wrap;             /* wrap if too long */
-    margin-bottom: 10px;         /* space between left and right group */
+    justify-content: center;    /* center links in the group */
+    flex-wrap: wrap;            /* wrap if needed */
+    margin-bottom: 10px;        /* space between groups */
   }
 
+  /* Keep links spaced */
   nav.top-nav a {
-    margin-right: 8px;           /* spacing between links */
-    margin-bottom: 5px;          /* spacing if wrap happens */
+    margin-right: 8px;
+    margin-bottom: 5px;
   }
 }
 
