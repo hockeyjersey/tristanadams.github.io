@@ -140,25 +140,23 @@ nav.top-nav a.current {
 @media (max-width: 600px) {
   nav.top-nav {
     position: static;         /* normal scrolling */
-    padding: 15px 20px;       
-    display: flex;
-    flex-direction: column;   /* stack the groups vertically */
-    align-items: center;      
-    gap: 10px;                
+    flex-direction: column;   /* stack left + right groups vertically */
+    align-items: center;      /* center the groups */
+    padding: 15px 10px;
+    gap: 10px;                /* space between left and right groups */
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
     display: flex;
-    justify-content: center;  /* center links in each group */
-    flex-wrap: nowrap;        /* no wrapping, keep in one row */
-    overflow-x: auto;         /* allow horizontal scroll if needed */
-    gap: 8px;                 
+    justify-content: center;  /* center links in group */
+    flex-wrap: nowrap;        /* keep links in one row */
+    gap: 8px;                 /* space between links */
   }
 
   nav.top-nav a {
-    margin: 0;                /* use gap instead of margin */
-    white-space: nowrap;      /* prevent link text from breaking */
+    margin: 0;                /* remove extra margins that cause wrapping */
+    white-space: nowrap;      /* don't let link text break */
   }
 }
 
