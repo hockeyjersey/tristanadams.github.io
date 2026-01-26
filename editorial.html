@@ -147,16 +147,6 @@ nav.top-nav a.current {
   object-fit: contain;  /* crop if needed to fill height */
   flex: 1 1 auto;     /* images expand evenly to fill row */
 }
-    
-@media (max-width: 600px) {
-  .editorial-gallery {
-    flex-direction: column;  /* stack images on mobile */
-  }
-  .editorial-gallery img {
-    width: 100%;
-    height: auto;
-  }
-}
 
 #lightbox {
   display: none;               /* hidden initially */
@@ -203,6 +193,47 @@ nav.top-nav a.current {
       margin-bottom: 20px;
       line-height: 1.5;
     }
+
+/* MOBILE STYLES */
+@media (max-width: 600px) {
+  /* Stack gallery images vertically */
+  .editorial-gallery {
+    flex-direction: column;    /* images in a column */
+    gap: 15px;                 /* smaller space between images */
+    padding: 100px 20px 40px 20px; /* less horizontal padding for mobile */
+    justify-content: flex-start;   /* start from left/top */
+  }
+
+  .editorial-gallery img {
+    width: 100%;       /* fill container */
+    height: auto;      /* maintain aspect ratio */
+    flex: none;        /* stop flex stretching */
+  }
+
+  /* Nav stacked and mobile-friendly */
+  nav.top-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    flex-direction: column;
+  }
+
+  nav.top-nav .left-links a,
+  nav.top-nav .right-links a {
+    margin: 5px 0;
+  }
+
+  /* Optional: smaller headings for mobile */
+  section h2 {
+    font-size: 18px;
+  }
+}
+
+    
   </style>
 </head>
 
