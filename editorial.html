@@ -140,26 +140,27 @@ nav.top-nav a.current {
 @media (max-width: 600px) {
   nav.top-nav {
     position: static;         /* normal scrolling */
-    padding: 15px 20px;       /* more even top/bottom padding */
+    padding: 15px 20px;       
     display: flex;
-    flex-direction: column;   /* stack the groups */
-    align-items: center;      /* center groups horizontally */
-    gap: 10px;                /* space between groups */
+    flex-direction: column;   /* stack the groups vertically */
+    align-items: center;      
+    gap: 10px;                
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
     display: flex;
-    justify-content: center;  /* center links inside group */
-    flex-wrap: wrap;          /* wrap if too many links */
-    gap: 8px;                 /* spacing between links */
+    justify-content: center;  /* center links in each group */
+    flex-wrap: nowrap;        /* no wrapping, keep in one row */
+    overflow-x: auto;         /* allow horizontal scroll if needed */
+    gap: 8px;                 
   }
 
   nav.top-nav a {
     margin: 0;                /* use gap instead of margin */
+    white-space: nowrap;      /* prevent link text from breaking */
   }
 }
-
 
 .editorial-gallery {
   display: flex;
