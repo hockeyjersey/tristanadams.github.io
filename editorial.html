@@ -222,20 +222,21 @@ nav.top-nav a.current {
 @media (max-width: 600px) {
   nav.top-nav {
     flex-direction: column;      /* stack left + right links vertically */
-    align-items: flex-start;     /* align links to the left */
+    align-items: center;     /* align links to the left */
     padding: 10px 20px;          /* a bit smaller padding */
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    flex-direction: row;          /* keep links in each group horizontal */
-    flex-wrap: wrap;              /* wrap if needed */
-    margin-bottom: 5px;           /* space between groups */
+    display: flex;
+    justify-content: center; /* center links horizontally */
+    margin: 5px 0;           /* spacing between link groups */
+    flex-wrap: wrap;          /* wrap links if needed */
   }
 
-  nav.top-nav a {
-    margin-right: 8px;            /* spacing between links */
-    margin-bottom: 5px;           /* spacing for wrapping */
+  nav.top-nav .left-links a,
+  nav.top-nav .right-links a {
+    margin: 0 8px;           /* horizontal spacing between links */
   }
 }
     
