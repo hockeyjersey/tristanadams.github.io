@@ -51,6 +51,13 @@ body {
 body, html {
   overflow-y: hidden;  /* disables vertical scrolling */
 }
+
+/* Mobile: allow vertical scrolling */
+@media (max-width: 600px) {
+  body, html {
+    overflow-y: auto;
+  }
+}   
   
     nav {
       position: fixed;
