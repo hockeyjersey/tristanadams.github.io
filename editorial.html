@@ -133,28 +133,23 @@ nav.top-nav a.current {
 
 @media (max-width: 600px) {
   nav.top-nav {
-    position: static;         /* normal scrolling */
-    flex-direction: row;      /* all links in one row */
-    flex-wrap: wrap;          /* allow links to go to next line if needed */
-    justify-content: center;  /* center horizontally */
+    position: static;        /* normal scrolling */
+    flex-direction: row;     /* all links in one row */
+    flex-wrap: wrap;         /* wrap if needed */
+    justify-content: center; /* center links horizontally */
     align-items: center;
     padding: 15px 10px;
-    gap: 10px;                /* space between rows if wrap occurs */
+    gap: 8px;                /* space between links */
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;                 /* spacing between links */
-    margin: 0;                /* remove default margin */
+    display: contents;       /* ignore these divs, treat links as direct children */
   }
 
   nav.top-nav a {
-    margin: 0;                /* remove extra margins */
-    white-space: nowrap;      /* prevent breaking inside link text */
+    margin: 0;               /* remove extra spacing */
+    white-space: nowrap;     /* don’t break words */
   }
 }
 
