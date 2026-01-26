@@ -134,9 +134,9 @@ nav.top-nav a.current {
 @media (max-width: 600px) {
   nav.top-nav {
     position: static;        /* normal scrolling */
-    flex-direction: row;     /* all links in one row */
+    flex-direction: row;     /* all links in a row */
     flex-wrap: wrap;         /* wrap if needed */
-    justify-content: center; /* center links horizontally */
+    justify-content: center; /* center the row */
     align-items: center;
     padding: 15px 10px;
     gap: 8px;                /* space between links */
@@ -144,12 +144,12 @@ nav.top-nav a.current {
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents;       /* ignore these divs, treat links as direct children */
+    display: contents;       /* remove wrapper effect */
   }
 
   nav.top-nav a {
-    margin: 0;               /* remove extra spacing */
-    white-space: nowrap;     /* don’t break words */
+    margin: 0;               /* no extra margin */
+    white-space: nowrap;     /* prevent breaking words */
   }
 }
 
