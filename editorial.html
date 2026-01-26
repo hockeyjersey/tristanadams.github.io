@@ -133,13 +133,12 @@ nav.top-nav a.current {
 
 @media (max-width: 600px) {
   nav.top-nav {
-    position: static;        /* normal scrolling */
-    flex-direction: row;     /* all links in a row */
+    position: static;        /* scroll normally */
+    flex-direction: row;     /* row layout */
     flex-wrap: wrap;         /* wrap if needed */
-    justify-content: center; /* center the row */
-    align-items: center;
-    padding: 15px 10px;
+    justify-content: center; /* center horizontally */
     gap: 8px;                /* space between links */
+    padding: 10px 0;
   }
 
   nav.top-nav .left-links,
@@ -148,8 +147,8 @@ nav.top-nav a.current {
   }
 
   nav.top-nav a {
-    margin: 0;               /* no extra margin */
-    white-space: nowrap;     /* prevent breaking words */
+    margin: 0;
+    white-space: nowrap;
   }
 }
 
