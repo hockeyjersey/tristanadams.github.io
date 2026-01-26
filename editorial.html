@@ -204,45 +204,26 @@ nav.top-nav a.current {
       line-height: 1.5;
     }
 
-/* MOBILE STYLES */
+/* Mobile nav adjustments */
 @media (max-width: 600px) {
-  /* Stack gallery images vertically */
-  .editorial-gallery {
-    flex-direction: column;    /* images in a column */
-    gap: 15px;                 /* smaller space between images */
-    padding: 100px 20px 40px 20px; /* less horizontal padding for mobile */
-    justify-content: flex-start;   /* start from left/top */
-  }
-
-  .editorial-gallery img {
-    width: 100%;       /* fill container */
-    height: auto;      /* maintain aspect ratio */
-    flex: none;        /* stop flex stretching */
-  }
-
-  /* Nav stacked and mobile-friendly */
   nav.top-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
+    flex-direction: column;      /* stack left + right links vertically */
+    align-items: flex-start;     /* align links to the left */
+    padding: 10px 20px;          /* a bit smaller padding */
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    flex-direction: column;
+    flex-direction: row;          /* keep links in each group horizontal */
+    flex-wrap: wrap;              /* wrap if needed */
+    margin-bottom: 5px;           /* space between groups */
   }
 
-  nav.top-nav .left-links a,
-  nav.top-nav .right-links a {
-    margin: 5px 0;
-  }
-
-  /* Optional: smaller headings for mobile */
-  section h2 {
-    font-size: 18px;
+  nav.top-nav a {
+    margin-right: 8px;            /* spacing between links */
+    margin-bottom: 5px;           /* spacing for wrapping */
   }
 }
-
     
   </style>
 </head>
