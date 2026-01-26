@@ -132,26 +132,29 @@ nav.top-nav a.current {
 }
 
 @media (max-width: 600px) {
-  /* Mobile nav adjustments */
   nav.top-nav {
     position: static;         /* normal scrolling */
-    flex-direction: column;   /* stack left + right groups vertically */
-    align-items: center;      /* center groups */
+    flex-direction: row;      /* all links in one row */
+    flex-wrap: wrap;          /* allow links to go to next line if needed */
+    justify-content: center;  /* center horizontally */
+    align-items: center;
     padding: 15px 10px;
-    gap: 10px;                /* space between left and right groups */
+    gap: 10px;                /* space between rows if wrap occurs */
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
     display: flex;
-    justify-content: center;  /* center links in each group */
-    flex-wrap: nowrap;        /* keep links in one row */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;                 /* spacing between links */
+    margin: 0;                /* remove default margin */
   }
 
   nav.top-nav a {
-    margin: 0;                /* remove extra margins that break layout */
-    white-space: nowrap;      /* prevent text from breaking */
+    margin: 0;                /* remove extra margins */
+    white-space: nowrap;      /* prevent breaking inside link text */
   }
 }
 
