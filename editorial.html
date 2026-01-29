@@ -239,20 +239,18 @@ nav.top-nav a.current {
     
 @media (max-width: 600px) {
   nav.top-nav {
-    display: grid;
-    grid-template-columns: repeat(2, auto); /* 2 columns */
-    justify-content: center;                /* center grid horizontally */
-    row-gap: 6px;                           /* space between rows */
-    column-gap: 10px;                       /* space between links */
+    display: flex;
+    flex-wrap: wrap;          /* allow wrapping into 2 rows */
+    justify-content: center;  /* center all links */
+    gap: 4px 10px;            /* row-gap 6px, column-gap 12px */
     padding: 10px 0;
   }
 
   nav.top-nav a {
-    margin: 0;
-    white-space: nowrap;                     /* prevent breaking inside a link */
-    text-align: center;
+    margin: 0;                /* remove extra margins */
+    white-space: nowrap;       /* prevent breaking inside a link */
   }
-} 
+}
     
   </style>
 </head>
