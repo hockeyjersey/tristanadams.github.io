@@ -224,6 +224,14 @@ nav.top-nav a.current {
     }
 
 @media (max-width: 600px) {
+  #nav-left,
+  #nav-right {
+    visibility: hidden;  /* hides arrows but keeps them in the DOM */
+    pointer-events: none; /* ensures clicks don’t trigger anything */
+  }
+}
+
+@media (max-width: 600px) {
   /* stack gallery images vertically on mobile */
   .editorial-gallery {
     flex-direction: column;
@@ -302,6 +310,8 @@ nav.top-nav a.current {
     <div id="nav-right">&#10095;</div>
   </div>
 
+  
+
   <!-- JS -->
   <script>
     const galleryImages = document.querySelectorAll('.editorial-gallery img');
@@ -338,15 +348,6 @@ nav.top-nav a.current {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.style.display = 'none';
     });
-
-@media (max-width: 600px) {
-  #nav-left,
-  #nav-right {
-    visibility: hidden;  /* hides arrows but keeps them in the DOM */
-    pointer-events: none; /* ensures clicks don’t trigger anything */
-  }
-}
-
   </script>
   
 </body>
