@@ -47,6 +47,20 @@ body {
   scrollbar-width: thin;                /* makes it smaller */
   scrollbar-color: blue #ff64f1;       /* thumb color, track color */
 }
+    
+/* Desktop: disable vertical scrolling */
+@media (min-width: 601px) {
+  body, html {
+    overflow-y: hidden;
+  }
+}
+
+/* Mobile: enable vertical scrolling */
+@media (max-width: 600px) {
+  body, html {
+    overflow-y: auto;
+  }
+}
 
     nav a {
       margin-right: 15px;
@@ -69,7 +83,7 @@ body {
       font-weight: normal;
     }
 
-nav a.current {
+    nav a.current {
   text-decoration: underline;
     }
 
@@ -117,6 +131,21 @@ nav.top-nav a.current {
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;         /* normal scrolling */
+    flex-direction: column;   /* stack left + right groups vertically */
+    align-items: center;      /* center the groups */
+    padding: 15px 10px;
+    gap: 10px;                /* space between left and right groups */
+  }
+
   nav.top-nav .left-links,
   nav.top-nav .right-links {
     display: flex;
@@ -146,16 +175,6 @@ nav.top-nav a.current {
   width: auto;        /* keep natural aspect ratio */
   object-fit: contain;  /* crop if needed to fill height */
   flex: 1 1 auto;     /* images expand evenly to fill row */
-}
-
-@media (max-width: 600px) {
-  .editorial-gallery {
-    flex-direction: column;  /* stack images on mobile */
-  }
-  .editorial-gallery img {
-    width: 100%;
-    height: auto;
-  }
 }
 
 #lightbox {
@@ -203,6 +222,41 @@ nav.top-nav a.current {
       margin-bottom: 20px;
       line-height: 1.5;
     }
+
+@media (max-width: 600px) {
+  /* stack gallery images vertically on mobile */
+  .editorial-gallery {
+    flex-direction: column;
+    gap: 15px;      /* optional: smaller gap between images */
+    padding: 100px 20px 40px 20px; /* adjust padding for mobile */
+  }
+
+  .editorial-gallery img {
+    width: 100%;     /* full width on mobile */
+    height: auto;    /* maintain aspect ratio */
+  }
+}
+    
+/* Mobile nav adjustments */
+@media (max-width: 600px) {
+  nav.top-nav {
+    flex-direction: column;      /* stack left + right links vertically */
+    align-items: center;     /* align links to the left */
+    padding: 10px 20px;          /* a bit smaller padding */
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    flex-direction: row;          /* keep links in each group horizontal */
+    flex-wrap: wrap;              /* wrap if needed */
+    margin-bottom: 5px;           /* space between groups */
+  }
+
+  nav.top-nav a {
+    margin-right: 8px;            /* spacing between links */
+    margin-bottom: 5px;           /* spacing for wrapping */
+  }
+}
     
   </style>
 </head>
