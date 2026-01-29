@@ -228,36 +228,25 @@ nav.top-nav a.current {
     height: auto;    /* maintain aspect ratio */
   }
 }
-    
-/* Desktop: space first 6 links left, last 2 links right */
-@media (min-width: 601px) {
-  .all-links {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-
-  .all-links a:nth-child(-n+6) {
-    margin-right: 10px; /* spacing for left group */
-  }
-
-  .all-links a:nth-child(n+7) {
-    margin-left: 10px; /* spacing for right group */
-  }
-}
 
 @media (max-width: 600px) {
-  .all-links {
-    display: flex;
-    justify-content: center;  /* center all rows */
-    flex-wrap: wrap;          /* allow wrapping */
-    gap: 8px;                 /* spacing between links */
-    text-align: center;       /* center text in each row */
+  nav.top-nav {
+    position: static;          /* scroll normally */
+    flex-direction: row;       /* keep one row for links */
+    justify-content: center;   /* center all links */
+    flex-wrap: wrap;           /* allow wrapping to next line */
+    padding: 10px 0;
+    gap: 8px;                  /* space between links */
   }
 
-  .all-links a {
-    margin: 0;                /* remove extra margins */
-    white-space: nowrap;      /* keep link text on one line */
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: contents;          /* treat links as part of parent flex */
+  }
+
+  nav.top-nav a {
+    margin: 4px;               /* small spacing between links */
+    white-space: nowrap;       /* prevent breaking inside a link */
   }
 }
     
