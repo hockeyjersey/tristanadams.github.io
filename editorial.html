@@ -250,14 +250,17 @@ nav.top-nav a.current {
   }
 }
     
-/* MOBILE: 2 even rows, 4 links per row */
+/* MOBILE: 2 even rows, 4 links per row, perfectly centered */
 @media (max-width: 600px) {
   nav.top-nav .all-links {
     display: grid;
     grid-template-columns: repeat(4, auto); /* 4 columns */
-    grid-template-rows: auto auto;          /* 2 rows */
-    justify-content: center;
-    gap: 4px 10px;                          /* row / column gap */
+    grid-template-rows: repeat(2, auto);    /* 2 rows */
+    justify-items: center;   /* centers each link within its column */
+    row-gap: 5px;            /* space between rows */
+    column-gap: 10px;        /* space between columns */
+    width: 100%;
+    padding: 10px 0;
   }
 
   nav.top-nav .all-links a {
