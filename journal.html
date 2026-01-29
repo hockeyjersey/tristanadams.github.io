@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>journal - tristan adams</title>
+  <title>editorial - tristan adams</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <style>
     body {
       margin: 40px;
@@ -15,7 +15,7 @@
       max-width: 3840px;
       text-transform: lowercase;
     }
-
+    
 /* Make gallery images show clickable cursor */
 .editorial-gallery img {
   cursor: pointer;
@@ -27,7 +27,7 @@ body {
   overflow-x: auto;     /* horizontal scrollbar only if needed */
 }
 
-    /* Chrome, Edge, Safari */
+/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 4px;          /* vertical scrollbar thickness */
   height: 4px;         /* horizontal scrollbar thickness */
@@ -48,19 +48,19 @@ body {
   scrollbar-color: blue #ff64f1;       /* thumb color, track color */
 }
     
-body, html {
-  overflow-y: hidden;  /* disables vertical scrolling */
+/* Desktop: disable vertical scrolling */
+@media (min-width: 601px) {
+  body, html {
+    overflow-y: hidden;
+  }
 }
-    
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #ff64f1;
-      padding: 10px 40px;
-      z-index: 1000;
-    }
+
+/* Mobile: enable vertical scrolling */
+@media (max-width: 600px) {
+  body, html {
+    overflow-y: auto;
+  }
+}
 
     nav a {
       margin-right: 15px;
@@ -74,8 +74,7 @@ body, html {
     }
 
     section {
-      padding: 80px 0;
-      
+      padding: 80px 0;      
     }
 
     section h2 {
@@ -84,7 +83,7 @@ body, html {
       font-weight: normal;
     }
 
-nav a.current {
+    nav a.current {
   text-decoration: underline;
     }
 
@@ -132,6 +131,35 @@ nav.top-nav a.current {
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;         /* normal scrolling */
+    flex-direction: column;   /* stack left + right groups vertically */
+    align-items: center;      /* center the groups */
+    padding: 15px 10px;
+    gap: 10px;                /* space between left and right groups */
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: flex;
+    justify-content: center;  /* center links in group */
+    flex-wrap: nowrap;        /* keep links in one row */
+    gap: 8px;                 /* space between links */
+  }
+
+  nav.top-nav a {
+    margin: 0;                /* remove extra margins that cause wrapping */
+    white-space: nowrap;      /* don't let link text break */
+  }
+}
+
 .editorial-gallery {
   display: flex;
   gap: 20px;
@@ -147,16 +175,6 @@ nav.top-nav a.current {
   width: auto;        /* keep natural aspect ratio */
   object-fit: contain;  /* crop if needed to fill height */
   flex: 1 1 auto;     /* images expand evenly to fill row */
-}
-
-@media (max-width: 600px) {
-  .editorial-gallery {
-    flex-direction: column;  /* stack images on mobile */
-  }
-  .editorial-gallery img {
-    width: 100%;
-    height: auto;
-  }
 }
 
 #lightbox {
@@ -199,21 +217,57 @@ nav.top-nav a.current {
 .editorial-gallery img {
   cursor: pointer;
 }
-
+  
     p {
       margin-bottom: 20px;
       line-height: 1.5;
     }
+
+@media (max-width: 600px) {
+  /* stack gallery images vertically on mobile */
+  .editorial-gallery {
+    flex-direction: column;
+    gap: 15px;      /* optional: smaller gap between images */
+    padding: 100px 20px 40px 20px; /* adjust padding for mobile */
+  }
+
+  .editorial-gallery img {
+    width: 100%;     /* full width on mobile */
+    height: auto;    /* maintain aspect ratio */
+  }
+}
+    
+/* Mobile nav adjustments */
+@media (max-width: 600px) {
+  nav.top-nav {
+    flex-direction: column;      /* stack left + right links vertically */
+    align-items: center;     /* align links to the left */
+    padding: 10px 20px;          /* a bit smaller padding */
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    flex-direction: row;          /* keep links in each group horizontal */
+    flex-wrap: wrap;              /* wrap if needed */
+    margin-bottom: 5px;           /* space between groups */
+  }
+
+  nav.top-nav a {
+    margin-right: 8px;            /* spacing between links */
+    margin-bottom: 5px;           /* spacing for wrapping */
+  }
+}
+    
   </style>
 </head>
 
 <body>
 
- <nav class="top-nav">
+<nav class="top-nav">
   <div class="left-links">
     <a href="index.html">home</a>
-    <a href="editorial.html">editorial</a>
-    <a href="journal.html" class="current">journal</a>
+    <a href="editorial.html" class="current">editorial</a>
+    <a href="journal.html">journal</a>
     <a href="publication.html">publication</a>
     <a href="video.html">video</a>
     <a href="objects.html">objects</a>
@@ -226,16 +280,17 @@ nav.top-nav a.current {
 </nav>
 
 <section class="editorial-gallery">
-  <img src="folder2/rph1.jpg" alt="Photo 1">
-  <img src="folder2/rph7.jpg" alt="Photo 2">
-  <img src="folder2/rph3.jpg" alt="Photo 3">
-  <img src="folder2/rph6.jpg" alt="Photo 4">
-  <img src="folder2/rpisc2.jpg" alt="Photo 5">
-  <img src="folder2/rpisc3.jpg" alt="Photo 6">
-  <img src="folder2/rph5.jpg" alt="Photo 7">
-  <img src="folder2/rph4.jpg" alt="Photo 8">
-  <img src="folder2/rpisc1.jpg" alt="Photo 9">
-  <img src="folder/rpf7.jpg" alt="Photo 10">
+  <img src="folder/rpf8.jpg" alt="Photo 1">
+  <img src="folder/rpf9.jpg" alt="Photo 2">
+  <img src="folder/rpf10.jpg" alt="Photo 3">
+  <img src="folder/rpf11.jpg" alt="Photo 4">
+  <img src="folder/rpf2.jpg" alt="Photo 5">
+  <img src="folder/rpf12.jpg" alt="Photo 6">
+  <img src="folder/rpf13.jpg" alt="Photo 7">
+  <img src="folder/rpf6.jpg" alt="Photo 8">
+  <img src="folder/rpf5.jpg" alt="Photo 9">
+  <img src="folder/rpf4.jpg" alt="Photo 10">
+  <img src="folder/rpf1.jpg" alt="Photo 11">
 </section>
 
  <!-- Lightbox -->
@@ -245,7 +300,7 @@ nav.top-nav a.current {
     <div id="nav-right">&#10095;</div>
   </div>
 
-<!-- JS -->
+  <!-- JS -->
   <script>
     const galleryImages = document.querySelectorAll('.editorial-gallery img');
     const lightbox = document.getElementById('lightbox');
@@ -277,11 +332,11 @@ nav.top-nav a.current {
       lightboxImg.src = galleryImages[currentIndex].src;
     });
 
-     // Close by clicking outside image
+    // Close by clicking outside image
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.style.display = 'none';
     });
   </script>
-
+  
 </body>
 </html>
