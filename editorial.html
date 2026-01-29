@@ -159,6 +159,16 @@ nav.top-nav a.current {
   flex: 1 1 auto;     /* images expand evenly to fill row */
 }
 
+@media (max-width: 600px) {
+  .editorial-gallery {
+    flex-direction: column;  /* stack images on mobile */
+  }
+  .editorial-gallery img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 #lightbox {
   display: none;               /* hidden initially */
   position: fixed;
