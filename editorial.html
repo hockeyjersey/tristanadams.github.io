@@ -339,10 +339,11 @@ nav.top-nav a.current {
       if (e.target === lightbox) lightbox.style.display = 'none';
     });
 
-    @media (max-width: 600px) {
+@media (max-width: 600px) {
   #nav-left,
   #nav-right {
-    display: none;  /* hide arrows on small screens */
+    visibility: hidden;  /* hides arrows but keeps them in the DOM */
+    pointer-events: none; /* ensures clicks don’t trigger anything */
   }
 }
 
