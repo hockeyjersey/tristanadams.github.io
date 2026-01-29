@@ -250,23 +250,25 @@ nav.top-nav a.current {
   }
 }
     
-/* MOBILE: 2 even rows, 4 links per row, perfectly centered */
+/* MOBILE: 2 rows, 4 links per row, perfectly centered */
 @media (max-width: 600px) {
-  nav.top-nav .all-links {
-    display: grid;
-    grid-template-columns: repeat(4, auto); /* 4 columns */
-    grid-template-rows: repeat(2, auto);    /* 2 rows */
-    justify-items: center;   /* centers each link within its column */
-    row-gap: 5px;            /* space between rows */
-    column-gap: 10px;        /* space between columns */
-    width: 100%;
+  nav.top-nav {
+    display: block; /* stack everything */
+    text-align: center; /* center contents */
     padding: 10px 0;
   }
 
-  nav.top-nav .all-links a {
-    display: block;
-    text-align: center;
-    white-space: nowrap;
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: inline-block; /* so all links are part of flow */
+  }
+
+  nav.top-nav a {
+    display: inline-block;   /* each link inline block */
+    width: calc(25% - 5px); /* 4 links per row, minus small gap */
+    margin: 2px;             /* tiny gap between links */
+    text-align: center;      /* center text in each link */
+    white-space: nowrap;     
   }
 }
     
