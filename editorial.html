@@ -254,23 +254,33 @@ nav.top-nav a.current {
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-columns: repeat(4, auto); /* 4 columns per row */
-    justify-content: center;                 /* center the grid horizontally */
-    justify-items: center;                   /* center each link in its column */
-    gap: 4px 10px;                           /* row gap / column gap */
+    grid-template-columns: repeat(4, auto); /* 4 columns */
+    grid-template-rows: auto auto;         /* 2 rows */
+    justify-content: center;               /* center the grid horizontally */
+    gap: 4px 10px;                         /* row gap / column gap */
     padding: 10px;
-    grid-auto-flow: row;                     /* fill rows first */
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents; /* flatten divs so links are direct grid items */
+    display: contents; /* flatten so all links are grid items */
   }
 
+  /* Place each link in the grid manually */
+  nav.top-nav a:nth-child(1) { grid-column: 1; grid-row: 1; }
+  nav.top-nav a:nth-child(2) { grid-column: 2; grid-row: 1; }
+  nav.top-nav a:nth-child(3) { grid-column: 3; grid-row: 1; }
+  nav-top a:nth-child(4) { grid-column: 4; grid-row: 1; }
+
+  nav.top-nav a:nth-child(5) { grid-column: 1; grid-row: 2; }
+  nav.top-nav a:nth-child(6) { grid-column: 2; grid-row: 2; }
+  nav-top a:nth-child(7) { grid-column: 3; grid-row: 2; }
+  nav-top a:nth-child(8) { grid-column: 4; grid-row: 2; }
+
   nav.top-nav a {
-    display: block;      /* each link fills its grid cell */
+    display: block;
     text-align: center;
-    white-space: nowrap; /* prevent breaking inside link text */
+    white-space: nowrap;
   }
 }
     
