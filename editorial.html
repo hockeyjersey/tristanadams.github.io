@@ -220,25 +220,23 @@ nav.top-nav a.current {
 }
 
 @media (max-width: 600px) {
-
   nav.top-nav {
-    position: static;
-    display: block;
-    padding: 12px 10px;
-    text-align: center;
+    flex-direction: row;       /* all links in one row */
+    justify-content: center;   /* center horizontally */
+    flex-wrap: wrap;           /* allow multiple lines if needed */
+    padding: 10px 0;
   }
 
+  /* Flatten the groups so links behave as direct children of nav */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: inline;
+    display: contents;         /* removes the group container for layout */
   }
 
   nav.top-nav a {
-    display: inline-block;
-    margin: 4px 6px;
-    white-space: nowrap;
+    margin: 4px 6px;           /* space between links */
+    white-space: nowrap;       /* prevent breaking inside a link */
   }
-
 }
     
   </style>
