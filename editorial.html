@@ -237,26 +237,27 @@ nav.top-nav a.current {
   }
 }
     
-/* Mobile nav adjustments */
+/* MOBILE: 2 even columns for nav */
 @media (max-width: 600px) {
   nav.top-nav {
-    flex-direction: column;      /* stack left + right links vertically */
-    align-items: center;     /* align links to the left */
-    padding: 10px 20px;          /* a bit smaller padding */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 equal columns */
+    gap: 8px;                       /* space between columns */
+    padding: 10px;
+    text-align: center;              /* center text in each column */
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    flex-direction: row;          /* keep links in each group horizontal */
-    flex-wrap: wrap;              /* wrap if needed */
-    margin-bottom: 5px;           /* space between groups */
+    display: contents;               /* flatten containers so links participate in grid */
   }
 
   nav.top-nav a {
-    margin-right: 8px;            /* spacing between links */
-    margin-bottom: 5px;           /* spacing for wrapping */
+    display: block;                  /* each link fills its grid cell */
+    margin: 4px 0;                   /* small vertical spacing */
+    white-space: nowrap;              /* prevent link text from breaking */
   }
-}
+}    
     
   </style>
 </head>
