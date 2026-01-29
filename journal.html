@@ -47,20 +47,6 @@ body {
   scrollbar-width: thin;                /* makes it smaller */
   scrollbar-color: blue #ff64f1;       /* thumb color, track color */
 }
-    
-/* Desktop: disable vertical scrolling */
-@media (min-width: 601px) {
-  body, html {
-    overflow-y: hidden;
-  }
-}
-
-/* Mobile: enable vertical scrolling */
-@media (max-width: 600px) {
-  body, html {
-    overflow-y: auto;
-  }
-}
 
     nav a {
       margin-right: 15px;
@@ -83,7 +69,7 @@ body {
       font-weight: normal;
     }
 
-    nav a.current {
+nav a.current {
   text-decoration: underline;
     }
 
@@ -160,6 +146,16 @@ nav.top-nav a.current {
   width: auto;        /* keep natural aspect ratio */
   object-fit: contain;  /* crop if needed to fill height */
   flex: 1 1 auto;     /* images expand evenly to fill row */
+}
+
+@media (max-width: 600px) {
+  .editorial-gallery {
+    flex-direction: column;  /* stack images on mobile */
+  }
+  .editorial-gallery img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 #lightbox {
