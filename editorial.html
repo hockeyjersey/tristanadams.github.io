@@ -131,14 +131,32 @@ nav.top-nav a.current {
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;         /* normal scrolling */
+    flex-direction: column;   /* stack left + right groups vertically */
+    align-items: center;      /* center the groups */
+    padding: 15px 10px;
+    gap: 10px;                /* space between left and right groups */
+  }
+
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents;       /* remove wrapper effect */
+    display: flex;
+    justify-content: center;  /* center links in group */
+    flex-wrap: nowrap;        /* keep links in one row */
+    gap: 8px;                 /* space between links */
   }
 
   nav.top-nav a {
-    margin: 0;
-    white-space: nowrap;
+    margin: 0;                /* remove extra margins that cause wrapping */
+    white-space: nowrap;      /* don't let link text break */
   }
 }
 
@@ -157,16 +175,6 @@ nav.top-nav a.current {
   width: auto;        /* keep natural aspect ratio */
   object-fit: contain;  /* crop if needed to fill height */
   flex: 1 1 auto;     /* images expand evenly to fill row */
-}
-
-@media (max-width: 600px) {
-  .editorial-gallery {
-    flex-direction: column;  /* stack images on mobile */
-  }
-  .editorial-gallery img {
-    width: 100%;
-    height: auto;
-  }
 }
 
 #lightbox {
@@ -226,6 +234,27 @@ nav.top-nav a.current {
   .editorial-gallery img {
     width: 100%;     /* full width on mobile */
     height: auto;    /* maintain aspect ratio */
+  }
+}
+    
+/* Mobile nav adjustments */
+@media (max-width: 600px) {
+  nav.top-nav {
+    flex-direction: column;      /* stack left + right links vertically */
+    align-items: center;     /* align links to the left */
+    padding: 10px 20px;          /* a bit smaller padding */
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    flex-direction: row;          /* keep links in each group horizontal */
+    flex-wrap: wrap;              /* wrap if needed */
+    margin-bottom: 5px;           /* space between groups */
+  }
+
+  nav.top-nav a {
+    margin-right: 8px;            /* spacing between links */
+    margin-bottom: 5px;           /* spacing for wrapping */
   }
 }
     
