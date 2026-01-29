@@ -229,26 +229,38 @@ nav.top-nav a.current {
   }
 }
     
-/* Mobile nav adjustments */
-@media (max-width: 600px) {
-  nav.top-nav {
-    flex-direction: column;      /* stack left + right links vertically */
-    align-items: center;     /* align links to the left */
-    padding: 10px 20px;          /* a bit smaller padding */
+/* Desktop: space first 6 links left, last 2 links right */
+@media (min-width: 601px) {
+  .all-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
   }
 
-  nav.top-nav .left-links,
-  nav.top-nav .right-links {
-    flex-direction: row;          /* keep links in each group horizontal */
-    flex-wrap: wrap;              /* wrap if needed */
-    margin-bottom: 5px;           /* space between groups */
+  .all-links a:nth-child(-n+6) {
+    margin-right: 10px; /* spacing for left group */
   }
 
-  nav.top-nav a {
-    margin-right: 8px;            /* spacing between links */
-    margin-bottom: 5px;           /* spacing for wrapping */
+  .all-links a:nth-child(n+7) {
+    margin-left: 10px; /* spacing for right group */
   }
 }
+
+/* Mobile: all links centered in a row, wrap if needed */
+@media (max-width: 600px) {
+  .all-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .all-links a {
+    margin: 0;
+    white-space: nowrap;
+  }
+}
+
     
   </style>
 </head>
