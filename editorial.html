@@ -131,16 +131,6 @@ nav.top-nav a.current {
   text-decoration: underline;
 }
 
-@media (max-width: 600px) {
-  nav.top-nav {
-    position: static;        /* scroll normally */
-    flex-direction: row;     /* row layout */
-    flex-wrap: wrap;         /* wrap if needed */
-    justify-content: center; /* center horizontally */
-    gap: 8px;                /* space between links */
-    padding: 10px 0;
-  }
-
   nav.top-nav .left-links,
   nav.top-nav .right-links {
     display: contents;       /* remove wrapper effect */
@@ -231,20 +221,21 @@ nav.top-nav a.current {
 
 @media (max-width: 600px) {
   nav.top-nav {
-    flex-direction: row;       /* all links in one row */
-    justify-content: center;   /* center horizontally */
-    padding: 10px;
+    position: static;
+    display: block;          /* kill flex on mobile */
+    text-align: center;      /* TRUE centering */
+    padding: 10px 0;
   }
 
-  /* Flatten the groups so links behave as direct children of nav */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents;         /* removes the group container for layout */
+    display: inline;         /* flatten structure */
   }
 
   nav.top-nav a {
-    margin: 0px;           /* space between links */
-    white-space: nowrap;       /* prevent breaking inside a link */
+    display: inline-block;   /* consistent spacing */
+    margin: 4px 6px;
+    white-space: nowrap;
   }
 }
     
