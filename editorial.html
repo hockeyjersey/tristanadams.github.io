@@ -246,21 +246,20 @@ nav.top-nav a.current {
   }
 }
 
-/* Mobile: all links centered in a row, wrap if needed */
 @media (max-width: 600px) {
   .all-links {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    justify-content: center;  /* center all rows */
+    flex-wrap: wrap;          /* allow wrapping */
+    gap: 8px;                 /* spacing between links */
+    text-align: center;       /* center text in each row */
   }
 
   .all-links a {
-    margin: 0;
-    white-space: nowrap;
+    margin: 0;                /* remove extra margins */
+    white-space: nowrap;      /* keep link text on one line */
   }
 }
-
     
   </style>
 </head>
