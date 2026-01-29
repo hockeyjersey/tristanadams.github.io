@@ -231,21 +231,20 @@ nav.top-nav a.current {
 
 @media (max-width: 600px) {
   nav.top-nav {
-    position: static;          /* scroll normally */
-    flex-direction: row;       /* keep one row for links */
-    justify-content: center;   /* center all links */
-    flex-wrap: wrap;           /* allow wrapping to next line */
+    flex-direction: row;       /* all links in one row */
+    justify-content: center;   /* center horizontally */
+    flex-wrap: wrap;           /* allow multiple lines if needed */
     padding: 10px 0;
-    gap: 8px;                  /* space between links */
   }
 
+  /* Flatten the groups so links behave as direct children of nav */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents;          /* treat links as part of parent flex */
+    display: contents;         /* removes the group container for layout */
   }
 
   nav.top-nav a {
-    margin: 4px;               /* small spacing between links */
+    margin: 4px 6px;           /* space between links */
     white-space: nowrap;       /* prevent breaking inside a link */
   }
 }
