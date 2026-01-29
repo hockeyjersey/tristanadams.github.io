@@ -338,6 +338,14 @@ nav.top-nav a.current {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.style.display = 'none';
     });
+
+    @media (max-width: 600px) {
+  #nav-left,
+  #nav-right {
+    display: none;  /* hide arrows on small screens */
+  }
+}
+
   </script>
   
 </body>
