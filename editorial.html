@@ -253,31 +253,23 @@ nav.top-nav a.current {
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-template-rows: auto auto;        /* 2 rows */
-    gap: 4px 8px;                         /* row gap 4px, column gap 8px */
-    justify-items: center;                 /* center links in columns */
-    justify-content: center;               /* center entire grid */
-    padding: 10px 0;
+    grid-template-columns: repeat(4, auto); /* 4 columns */
+    grid-auto-rows: auto;
+    justify-content: center;    /* center the grid horizontally */
+    gap: 4px 10px;              /* row gap, column gap */
+    padding: 10px;
   }
 
-  /* Flatten the left + right divs for grid */
+  /* flatten the wrappers so all links are direct grid items */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
     display: contents;
   }
 
   nav.top-nav a {
-    display: block;
-    text-align: center;
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 600px) {
-  nav.top-nav a:last-child {
-    grid-column: 4; /* put the last link in column 4 */
-    justify-self: center; /* center it in that column */
+    display: block;        /* make each link a block for alignment */
+    text-align: center;    /* center text */
+    white-space: nowrap;   /* prevent breaking inside a link */
   }
 }
  
