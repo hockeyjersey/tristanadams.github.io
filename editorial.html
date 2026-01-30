@@ -253,17 +253,18 @@ nav.top-nav a.current {
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
     grid-template-rows: auto auto;        /* 2 rows */
-    gap: 4px 10px;                        /* row gap, column gap */
-    justify-items: center;                 /* center links in their columns */
-    justify-content: center;               /* center the whole grid */
-    padding: 10px;
+    gap: 4px 8px;                         /* row gap 4px, column gap 8px */
+    justify-items: center;                 /* center links in columns */
+    justify-content: center;               /* center entire grid */
+    padding: 10px 0;
   }
 
+  /* Flatten the left + right divs for grid */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents; /* flatten wrapper divs */
+    display: contents;
   }
 
   nav.top-nav a {
@@ -271,11 +272,8 @@ nav.top-nav a.current {
     text-align: center;
     white-space: nowrap;
   }
-
-  /* Force the 8 links into 2 rows of 4 */
-  nav.top-nav a:nth-child(5) { grid-column-start: 1; } /* first item of bottom row */
 }
-
+ 
 /* MOBILE: reduce gap between nav and images */
 @media (max-width: 600px) {
   section {
