@@ -252,23 +252,35 @@ nav.top-nav a.current {
     
 @media (max-width: 600px) {
   nav.top-nav {
-    display: grid;
-    grid-template-columns: repeat(4, max-content);
-    grid-template-rows: repeat(2, auto);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    column-gap: 16px;
-    row-gap: 6px;
+    gap: 6px 16px;
     padding: 10px;
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents;
+    display: flex;
+    gap: 16px;
   }
 
   nav.top-nav a {
-    text-align: center;
     white-space: nowrap;
+    text-align: center;
+  }
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .top-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 16px;
   }
 }
 
@@ -282,7 +294,7 @@ nav.top-nav a.current {
     padding-top: 40px;  /* reduce extra space above images */
   }
 }
-    
+
   </style>
 </head>
 
