@@ -250,34 +250,26 @@ nav.top-nav a.current {
   }
 }
     
-/* MOBILE: 2 even rows for nav */
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-rows: repeat(2, auto); /* 2 rows */
-    grid-auto-flow: column;              /* fill columns first */
-    justify-content: center;             /* center horizontally */
-    gap: 4px 10px;                       /* row gap and column gap */
+    grid-template-columns: repeat(4, auto); /* 4 items per row */
+    grid-template-rows: repeat(2, auto);    /* 2 rows */
+    grid-auto-flow: row;                    /* fill rows first */
+    justify-content: center;
+    gap: 4px 10px;
     padding: 10px;
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents; /* flatten the divs so links are grid items */
+    display: contents;
   }
 
   nav.top-nav a {
-    display: block;    /* each link is a block for alignment */
+    display: block;
     text-align: center;
-    white-space: nowrap; /* prevent breaking inside link text */
-  }
-} 
-
-@media (max-width: 600px) {
-  nav.top-nav a[href="about"],
-  nav.top-nav a[href="contact"] {
-    justify-self: center;
-    padding-inline: 10px;
+    white-space: nowrap;
   }
 }
 
