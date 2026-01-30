@@ -250,26 +250,28 @@ nav.top-nav a.current {
   }
 }
     
+/* MOBILE: 2 even rows for nav */
 @media (max-width: 600px) {
   nav.top-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px 16px;
+    display: grid;
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    grid-auto-flow: column;              /* fill columns first */
+    justify-content: center;             /* center horizontally */
+    gap: 4px 10px;                       /* row gap and column gap */
     padding: 10px;
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: flex;
-    gap: 16px;
+    display: contents; /* flatten the divs so links are grid items */
   }
 
   nav.top-nav a {
-    white-space: nowrap;
+    display: block;    /* each link is a block for alignment */
     text-align: center;
+    white-space: nowrap; /* prevent breaking inside link text */
   }
-}
+} 
 
 .top-nav {
   display: flex;
@@ -336,8 +338,6 @@ nav.top-nav a.current {
     <div id="nav-left">&#10094;</div>
     <div id="nav-right">&#10095;</div>
   </div>
-
-  
 
   <!-- JS -->
   <script>
