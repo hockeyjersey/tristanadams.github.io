@@ -250,21 +250,21 @@ nav.top-nav a.current {
   }
 }
     
+/* MOBILE: 2 even rows for nav */
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-columns: repeat(4, max-content); /* equal column widths */
-    grid-template-rows: repeat(2, auto);
-    grid-auto-flow: row;
-    justify-content: center;  /* center the whole grid */
-    justify-items: center;    /* center items within columns */
-    gap: 4px 10px;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns per row */
+    grid-template-rows: repeat(2, auto);   /* 2 rows */
+    gap: 4px 10px;                          /* row gap, column gap */
+    justify-items: center;                   /* center links in each column */
+    justify-content: center;                 /* center grid in nav */
     padding: 10px;
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents;
+    display: contents; /* flatten wrapper divs */
   }
 
   nav.top-nav a {
