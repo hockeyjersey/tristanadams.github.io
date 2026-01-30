@@ -250,15 +250,14 @@ nav.top-nav a.current {
   }
 }
     
-/* MOBILE: 2 even rows for nav */
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 equal columns per row */
-    grid-template-rows: repeat(2, auto);   /* 2 rows */
-    gap: 4px 10px;                          /* row gap, column gap */
-    justify-items: center;                   /* center links in each column */
-    justify-content: center;                 /* center grid in nav */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+    grid-template-rows: auto auto;        /* 2 rows */
+    gap: 4px 10px;                        /* row gap, column gap */
+    justify-items: center;                 /* center links in their columns */
+    justify-content: center;               /* center the whole grid */
     padding: 10px;
   }
 
@@ -272,6 +271,9 @@ nav.top-nav a.current {
     text-align: center;
     white-space: nowrap;
   }
+
+  /* Force the 8 links into 2 rows of 4 */
+  nav.top-nav a:nth-child(5) { grid-column-start: 1; } /* first item of bottom row */
 }
 
 /* MOBILE: reduce gap between nav and images */
