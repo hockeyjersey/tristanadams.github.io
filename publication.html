@@ -323,18 +323,6 @@ a:hover {
     margin-left: -8px;  /* tweak this value */
   }
 }
-
-@media (max-width: 600px) {
-  nav.top-nav a {
-    display: inline-block;
-    padding: 2px 4px;
-    background: transparent !important;
-    border-radius: 0;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-}
  
   </style>
 </head>
@@ -406,8 +394,18 @@ a:hover {
     // Close by clicking outside image
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.style.display = 'none';
-    });
+    });   
   </script>
+
+  <script>
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (a && window.innerWidth <= 600) {
+      a.blur();            // remove focus ring / pressed state
+      document.activeElement.blur();
+    }
+  });
+</script>
 
  <div class="pdf-section"> 
  <p>left to right:<br><br></p>
