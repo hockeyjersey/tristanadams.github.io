@@ -86,6 +86,69 @@ nav.top-nav .right-links a:last-child {
       margin-bottom: 20px;
       line-height: 1.5;
     }
+
+@media (max-width: 600px) {
+  #nav-left,
+  #nav-right {
+    visibility: hidden;  /* hides arrows but keeps them in the DOM */
+    pointer-events: none; /* ensures clicks don’t trigger anything */
+  }
+}
+
+@media (max-width: 600px) {
+  /* stack gallery images vertically on mobile */
+  .editorial-gallery {
+    flex-direction: column;
+    gap: 15px;      /* optional: smaller gap between images */
+    padding: 100px 20px 40px 20px; /* adjust padding for mobile */
+  }
+
+  .editorial-gallery img {
+    width: 100%;     /* full width on mobile */
+    height: auto;    /* maintain aspect ratio */
+  }
+}
+    
+@media (max-width: 600px) {
+  nav.top-nav {
+    display: grid;
+    grid-template-columns: repeat(4, auto); /* 4 columns */
+    grid-auto-rows: auto;
+    justify-content: center;    /* center the grid horizontally */
+    gap: 4px 10px;              /* row gap, column gap */
+    padding: 10px;
+  }
+
+  /* flatten the wrappers so all links are direct grid items */
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: contents;
+  }
+
+  nav.top-nav a {
+    display: block;        /* make each link a block for alignment */
+    text-align: center;    /* center text */
+    white-space: nowrap;   /* prevent breaking inside a link */
+  }
+}
+ 
+/* MOBILE: reduce gap between nav and images */
+@media (max-width: 600px) {
+  section {
+    padding-top: 30px;  /* reduce top padding on mobile */
+  }
+
+  .editorial-gallery {
+    padding-top: 40px;  /* reduce extra space above images */
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav a[href="contact.html"] {
+    margin-left: -8px;  /* tweak this value */
+  }
+}
+    
   </style>
 </head>
 
