@@ -236,7 +236,22 @@ nav.top-nav a.current {
     margin-left: -8px;  /* tweak this value */
   }
 }
-    
+
+/* MOBILE ONLY: remove blue tap/focus highlight on top nav links */
+@media (max-width: 600px) {
+  nav.top-nav a {
+    -webkit-tap-highlight-color: transparent; /* removes blue tap flash */
+    outline: none !important;
+  }
+
+  nav.top-nav a:focus,
+  nav.top-nav a:focus-visible,
+  nav.top-nav a:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
   </style>
 </head>
 
