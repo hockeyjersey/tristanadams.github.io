@@ -18,6 +18,15 @@
       text-transform: lowercase; /* everything lowercase */
     }
 
+nav.top-nav a {
+  outline: none;          /* removes the default focus outline */
+}
+
+nav.top-nav a:focus {
+  outline: none;          /* ensures focus state is clean */
+  box-shadow: none;       /* removes any shadow in some browsers */
+}
+    
 /* Make gallery images show clickable cursor */
 .editorial-gallery img {
   cursor: pointer;
