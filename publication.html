@@ -332,6 +332,21 @@ a:hover {
     margin-left: -8px;  /* tweak this value */
   }
 }
+
+@media (max-width: 600px) {
+  /* remove blue box for 'publication' link on mobile only */
+  nav.top-nav a[href="publication.html"] {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  nav.top-nav a[href="publication.html"]:focus,
+  nav.top-nav a[href="publication.html"]:active,
+  nav.top-nav a[href="publication.html"]:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
  
   </style>
 </head>
