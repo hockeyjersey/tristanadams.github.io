@@ -335,8 +335,15 @@ a:hover {
 
 @media (max-width: 600px) {
   nav.top-nav a[href="publication.html"] {
-    -webkit-tap-highlight-color: transparent; /* iOS/Safari/Chrome */
+    -webkit-tap-highlight-color: transparent; /* HIDE BLUE iOS/Safari/Chrome */
     tap-highlight-color: transparent;         /* some older browsers */
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav a[href="publication.html"]:focus {
     outline: none;
     box-shadow: none;
   }
