@@ -112,6 +112,49 @@ nav.top-nav .right-links a {
 nav.top-nav .right-links a:last-child {
   margin-right: 0; /* remove extra margin after last link */
 }
+
+nav.top-nav a {
+  text-decoration: none;
+  color: blue;
+  font-weight: normal;
+}
+
+nav.top-nav a:hover {
+  opacity: 0.6;
+}
+
+nav.top-nav a.current {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;         /* normal scrolling */
+    flex-direction: column;   /* stack left + right groups vertically */
+    align-items: center;      /* center the groups */
+    padding: 15px 10px;
+    gap: 10px;                /* space between left and right groups */
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: flex;
+    justify-content: center;  /* center links in group */
+    flex-wrap: nowrap;        /* keep links in one row */
+    gap: 8px;                 /* space between links */
+  }
+
+  nav.top-nav a {
+    margin: 0;                /* remove extra margins that cause wrapping */
+    white-space: nowrap;      /* don't let link text break */
+  }
+}
     
     p {
       margin-bottom: 20px;
