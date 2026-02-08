@@ -21,6 +21,11 @@
   cursor: pointer;
 }
 
+/* Remove blue tap highlight on mobile for all clickable elements */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   /* force scrollbar space to always show */
   overflow-y: scroll;   /* always show vertical scrollbar */
@@ -48,19 +53,19 @@ body {
   scrollbar-color: blue #ff64f1;       /* thumb color, track color */
 }
 
-body, html {
-  overflow-y: hidden;  /* disables vertical scrolling */
+/* Desktop: disable vertical scrolling */
+@media (min-width: 601px) {
+  body, html {
+    overflow-y: hidden;
+  }
 }
-  
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #ff64f1;
-      padding: 10px 40px;
-      z-index: 1000;
-    }
+
+/* Mobile: enable vertical scrolling */
+@media (max-width: 600px) {
+  body, html {
+    overflow-y: auto;
+  }
+}
 
     nav a {
       margin-right: 15px;
@@ -138,6 +143,35 @@ nav.top-nav a.current {
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav {
+    position: static;         /* normal scrolling */
+    flex-direction: column;   /* stack left + right groups vertically */
+    align-items: center;      /* center the groups */
+    padding: 15px 10px;
+    gap: 10px;                /* space between left and right groups */
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: flex;
+    justify-content: center;  /* center links in group */
+    flex-wrap: nowrap;        /* keep links in one row */
+    gap: 8px;                 /* space between links */
+  }
+
+  nav.top-nav a {
+    margin: 0;                /* remove extra margins that cause wrapping */
+    white-space: nowrap;      /* don't let link text break */
+  }
+}
+
 .editorial-gallery {
   display: flex;
   gap: 20px;
@@ -152,17 +186,7 @@ nav.top-nav a.current {
   height: 300px;
   width: auto;        /* keep natural aspect ratio */
   object-fit: contain;  /* crop if needed to fill height */
-  flex: 0 0 auto;     /* images expand evenly to fill row */
-}
-    
-@media (max-width: 600px) {
-  .editorial-gallery {
-    flex-direction: column;  /* stack images on mobile */
-  }
-  .editorial-gallery img {
-    width: 100%;
-    height: auto;
-  }
+  flex: 1 1 auto;     /* images expand evenly to fill row */
 }
 
 #lightbox {
@@ -227,6 +251,69 @@ a:hover {
       margin-bottom: 20px;
       line-height: 1.5;
     }
+
+@media (max-width: 600px) {
+  #nav-left,
+  #nav-right {
+    visibility: hidden;  /* hides arrows but keeps them in the DOM */
+    pointer-events: none; /* ensures clicks don’t trigger anything */
+  }
+}
+
+@media (max-width: 600px) {
+  /* stack gallery images vertically on mobile */
+  .editorial-gallery {
+    flex-direction: column;
+    gap: 15px;      /* optional: smaller gap between images */
+    padding: 100px 20px 40px 20px; /* adjust padding for mobile */
+  }
+
+  .editorial-gallery img {
+    width: 100%;     /* full width on mobile */
+    height: auto;    /* maintain aspect ratio */
+  }
+}
+    
+@media (max-width: 600px) {
+  nav.top-nav {
+    display: grid;
+    grid-template-columns: repeat(4, auto); /* 4 columns */
+    grid-auto-rows: auto;
+    justify-content: center;    /* center the grid horizontally */
+    gap: 4px 10px;              /* row gap, column gap */
+    padding: 10px;
+  }
+
+  /* flatten the wrappers so all links are direct grid items */
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: contents;
+  }
+
+  nav.top-nav a {
+    display: block;        /* make each link a block for alignment */
+    text-align: center;    /* center text */
+    white-space: nowrap;   /* prevent breaking inside a link */
+  }
+}
+ 
+/* MOBILE: reduce gap between nav and images */
+@media (max-width: 600px) {
+  section {
+    padding-top: 30px;  /* reduce top padding on mobile */
+  }
+
+  .editorial-gallery {
+    padding-top: 40px;  /* reduce extra space above images */
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav a[href="contact.html"] {
+    margin-left: -8px;  /* tweak this value */
+  }
+}
+ 
   </style>
 </head>
 
