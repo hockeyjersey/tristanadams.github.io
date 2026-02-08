@@ -16,6 +16,47 @@
       text-transform: lowercase;
     }
 
+body {
+  /* force scrollbar space to always show */
+  overflow-y: scroll;   /* always show vertical scrollbar */
+  overflow-x: auto;     /* horizontal scrollbar only if needed */
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 4px;          /* vertical scrollbar thickness */
+  height: 4px;         /* horizontal scrollbar thickness */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: blue; /* your text color */
+  border-radius: 0;       /* square edges */
+}
+
+::-webkit-scrollbar-track {
+  background: #ff64f1;    /* same as your background */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;                /* makes it smaller */
+  scrollbar-color: blue #ff64f1;       /* thumb color, track color */
+}
+    
+/* Desktop: disable vertical scrolling */
+@media (min-width: 601px) {
+  body, html {
+    overflow-y: hidden;
+  }
+}
+
+/* Mobile: enable vertical scrolling */
+@media (max-width: 600px) {
+  body, html {
+    overflow-y: auto;
+  }
+}
+    
     nav a {
       margin-right: 15px;
       text-decoration: none;
