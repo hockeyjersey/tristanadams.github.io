@@ -336,6 +336,24 @@ a:hover {
     padding-left: 21px;           /* nudge everything right */
   }
 }
+
+/* Desktop: show desktop text, hide mobile text */
+.desktop-text {
+  display: inline;
+}
+.mobile-text {
+  display: none;
+}
+
+/* Mobile: hide desktop text, show mobile text */
+@media (max-width: 600px) {
+  .desktop-text {
+    display: none;
+  }
+  .mobile-text {
+    display: inline;
+  }
+}
     
   </style>
 </head>
@@ -410,11 +428,15 @@ a:hover {
   </script>
 
 <div class="pdf-section"> 
- <p>left to right:<br><br></p>
- <p>samaritan (2026)<br>print t-shirt<br>$50</p>
- <p><br>alumni (2026)<br>print t-shirt<br>$50</p>
- <p><br>alice (2026)<br>print t-shirt<br>$50</p>
- </div>
+  <p>
+    <span class="desktop-text">left to right:</span>
+    <span class="mobile-text">top to bottom:</span>
+    <br><br>
+  </p>
+
+  <p>samaritan (2026)<br>print t-shirt<br>$50</p>
+  <p><br>alumni (2026)<br>print t-shirt<br>$50</p>
+  <p><br>alice (2026)<br>print
 
 </body>
 </html>
