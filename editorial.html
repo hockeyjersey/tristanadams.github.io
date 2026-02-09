@@ -250,26 +250,26 @@ nav.top-nav a.current {
   }
 }
     
+/* MOBILE: 2 even rows for nav */
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-columns: repeat(4, auto); /* 4 columns */
-    grid-auto-rows: auto;
-    justify-content: center;    /* center the grid horizontally */
-    gap: 4px 10px;              /* row gap, column gap */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    grid-auto-flow: column;              /* fill columns first */
+    justify-content: center;             /* center horizontally */
+    gap: 8px 20px;                       /* row gap and column gap */
     padding: 10px;
   }
 
-  /* flatten the wrappers so all links are direct grid items */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents;
+    display: contents; /* flatten the divs so links are grid items */
   }
 
   nav.top-nav a {
-    display: block;        /* make each link a block for alignment */
-    text-align: center;    /* center text */
-    white-space: nowrap;   /* prevent breaking inside a link */
+    display: block;    /* each link is a block for alignment */
+    text-align: center;
+    white-space: nowrap; /* prevent breaking inside link text */
   }
 }
  
