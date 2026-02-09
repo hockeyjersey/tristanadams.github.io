@@ -277,19 +277,21 @@ nav.top-nav a.current {
   margin-bottom: 6px;
 }
 
-/* Remove blue tap/focus box for contact links on mobile */
+/* Make tap highlight / opacity effect disappear immediately on mobile */
 @media (max-width: 600px) {
   .contact-links a {
-    -webkit-tap-highlight-color: transparent;  /* removes mobile tap flash */
-    outline: none;                              /* removes focus outline */
-    box-shadow: none;                            /* in case some browsers use shadow */
-  }
-
-  .contact-links a:focus,
-  .contact-links a:focus-visible,
-  .contact-links a:active {
+    -webkit-tap-highlight-color: transparent;
     outline: none;
     box-shadow: none;
+  }
+
+  /* remove lingering active/focus styles */
+  .contact-links a:active,
+  .contact-links a:focus {
+    transition: none;      /* disables slow fading */
+    outline: none;
+    box-shadow: none;
+    background: none;
   }
 }
 
