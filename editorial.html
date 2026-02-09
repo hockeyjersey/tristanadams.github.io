@@ -250,26 +250,26 @@ nav.top-nav a.current {
   }
 }
     
-/* MOBILE: 2 even rows for nav */
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-rows: repeat(2, auto); /* 2 rows */
-    grid-auto-flow: column;              /* fill columns first */
-    justify-content: center;             /* center horizontally */
-    gap: 4px 10px;                       /* row gap and column gap */
+    grid-template-columns: repeat(4, auto); /* 4 columns */
+    grid-auto-rows: auto;
+    justify-content: center;    /* center the grid horizontally */
+    gap: 4px 10px;              /* row gap, column gap */
     padding: 10px;
   }
 
+  /* flatten the wrappers so all links are direct grid items */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents; /* flatten the divs so links are grid items */
+    display: contents;
   }
 
   nav.top-nav a {
-    display: block;    /* each link is a block for alignment */
-    text-align: center;
-    white-space: nowrap; /* prevent breaking inside link text */
+    display: block;        /* make each link a block for alignment */
+    text-align: center;    /* center text */
+    white-space: nowrap;   /* prevent breaking inside a link */
   }
 }
  
@@ -286,7 +286,14 @@ nav.top-nav a.current {
 
 @media (max-width: 600px) {
   nav.top-nav a[href="contact.html"] {
-    margin-left: -6px;  /* tweak this value */
+    margin-left: -8px;  /* tweak this value */
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav {
+    justify-content: flex-start;  /* align grid content to start (left) */
+    padding-left: 21px;           /* nudge everything right */
   }
 }
 
