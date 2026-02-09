@@ -274,10 +274,15 @@ a:hover {
   /* stack gallery images vertically on mobile */
   .editorial-gallery {
     flex-direction: column;
-    gap: -2px;      /* optional: smaller gap between images */
+    gap: 0px;      /* optional: smaller gap between images */
     padding: 100px 20px 40px 20px; /* adjust padding for mobile */
   }
 
+  .editorial-gallery img {
+    margin-bottom: 0;         /* remove default bottom margin on images */
+  }
+}
+  
   .editorial-gallery img {
     width: 100%;     /* full width on mobile */
     height: auto;    /* maintain aspect ratio */
