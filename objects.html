@@ -287,24 +287,26 @@ a:hover {
     
 @media (max-width: 600px) {
   nav.top-nav {
-    display: grid;
-    grid-template-columns: repeat(4, auto); /* 4 columns */
-    grid-auto-rows: auto;
-    justify-content: center;    /* center the grid horizontally */
-    gap: 4px 10px;              /* row gap, column gap */
-    padding: 10px;
+    display: flex;              
+    flex-direction: column;     /* stack rows */
+    align-items: center;        /* center everything horizontally */
+    gap: 6px;
+    padding: 10px 0;            /* no left/right padding */
   }
 
-  /* flatten the wrappers so all links are direct grid items */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: contents;
+    display: flex;
+    justify-content: center;    /* center each row */
+    gap: 10px;
+    flex-wrap: wrap;            /* wrap if too many links */
   }
 
   nav.top-nav a {
-    display: block;        /* make each link a block for alignment */
-    text-align: center;    /* center text */
-    white-space: nowrap;   /* prevent breaking inside a link */
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    margin: 0;
   }
 }
  
