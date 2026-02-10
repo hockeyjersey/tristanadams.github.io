@@ -425,6 +425,11 @@ a:hover {
     img.src = src;
   }
 
+  // Optional: preload first image so first click feels instant
+  if (galleryImages.length > 0) {
+    preloadImage(galleryImages[0].dataset.full);
+  }
+
   galleryImages.forEach((img, index) => {
     img.addEventListener('click', () => {
       currentIndex = index;
@@ -432,7 +437,10 @@ a:hover {
       lightboxImg.src = img.dataset.full;
 
       const nextIndex = (currentIndex + 1) % galleryImages.length;
+      const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+
       preloadImage(galleryImages[nextIndex].dataset.full);
+      preloadImage(galleryImages[prevIndex].dataset.full);
     });
   });
 
@@ -452,6 +460,14 @@ a:hover {
 
     const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
     preloadImage(galleryImages[prevIndex].dataset.full);
+  });
+
+  // Close lightbox by clicking background
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+      lightboxImg.src = "";
+    }
   });
 </script>
 
