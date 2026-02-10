@@ -288,23 +288,24 @@ a:hover {
 @media (max-width: 600px) {
   nav.top-nav {
     display: grid;
-    grid-template-columns: repeat(4, auto); /* 4 columns */
+    grid-template-columns: repeat(4, auto);
     grid-auto-rows: auto;
-    justify-content: center;    /* center the grid horizontally */
-    gap: 4px 10px;              /* row gap, column gap */
+    gap: 4px 10px;
     padding: 10px;
+
+    width: fit-content;   /* grid shrinks to content */
+    margin: 0 auto;       /* centers the whole grid */
   }
 
-  /* flatten the wrappers so all links are direct grid items */
   nav.top-nav .left-links,
   nav.top-nav .right-links {
     display: contents;
   }
 
   nav.top-nav a {
-    display: block;        /* make each link a block for alignment */
-    text-align: center;    /* center text */
-    white-space: nowrap;   /* prevent breaking inside a link */
+    display: block;
+    text-align: center;
+    white-space: nowrap;
   }
 }
  
