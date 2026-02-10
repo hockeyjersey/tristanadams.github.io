@@ -378,6 +378,20 @@ a:hover {
 @media (min-width: 361px) and (max-width: 400px) {
   nav.top-nav { transform: translateX(-1px); }
 }
+
+/* Medium phones (iPhone XR, Galaxy S8+/similar) */
+@media (min-width: 401px) and (max-width: 440px) {
+  nav.top-nav {
+    transform: translateX(-1px); /* nudge right slightly */
+  }
+}
+
+/* Large phones (iPhone 14 Pro Max, Pixel 7, similar) */
+@media (min-width: 441px) and (max-width: 480px) {
+  nav.top-nav {
+    transform: translateX(0px); /* nudge right slightly more */
+  }
+}
     
   </style>
 </head>
