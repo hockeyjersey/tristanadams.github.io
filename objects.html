@@ -462,13 +462,10 @@ a:hover {
     preloadImage(galleryImages[prevIndex].dataset.full);
   });
 
-  // Close lightbox by clicking background
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = 'none';
-      lightboxImg.src = "";
-    }
-  });
+  // Close by clicking outside image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
 </script>
 
 <div class="pdf-section"> 
