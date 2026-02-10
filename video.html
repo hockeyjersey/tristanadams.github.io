@@ -400,42 +400,61 @@ a:hover {
   </div>
 
     <!-- JS -->
-  <script>
-    const galleryImages = document.querySelectorAll('.editorial-gallery img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const navLeft = document.getElementById('nav-left');
-    const navRight = document.getElementById('nav-right');
-    let currentIndex = 0;
+<script>
+  const galleryImages = document.querySelectorAll('.editorial-gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const navLeft = document.getElementById('nav-left');
+  const navRight = document.getElementById('nav-right');
+  let currentIndex = 0;
 
-// Open lightbox
-galleryImages.forEach((img, index) => {
-  img.addEventListener('click', () => {
-    currentIndex = index;
-    lightbox.style.display = 'flex';
-    lightboxImg.src = img.dataset.full; // use full-size image only on click
+  function preloadImage(src) {
+    const img = new Image();
+    img.src = src;
+  }
+
+  // Optional: preload first image so first click feels instant
+  if (galleryImages.length > 0) {
+    preloadImage(galleryImages[0].dataset.full);
+  }
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.dataset.full;
+
+      const nextIndex = (currentIndex + 1) % galleryImages.length;
+      const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+
+      preloadImage(galleryImages[nextIndex].dataset.full);
+      preloadImage(galleryImages[prevIndex].dataset.full);
+    });
   });
-});
 
-// Navigate left
-navLeft.addEventListener('click', (e) => {
-  e.stopPropagation();
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentIndex].dataset.full;
-});
+  navRight.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].dataset.full;
 
-// Navigate right
-navRight.addEventListener('click', (e) => {
-  e.stopPropagation();
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentIndex].dataset.full;
-});
+    const nextIndex = (currentIndex + 1) % galleryImages.length;
+    preloadImage(galleryImages[nextIndex].dataset.full);
+  });
 
-    // Close by clicking outside image
+  navLeft.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].dataset.full;
+
+    const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    preloadImage(galleryImages[prevIndex].dataset.full);
+  });
+
+  // Close by clicking outside image
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.style.display = 'none';
     });
-  </script>
+</script>
 
 <div class="pdf-section"> 
   <p><br>
