@@ -383,8 +383,13 @@ a:hover {
 </nav>
 
 <section class="editorial-gallery">
-  <img src="folder4/i wanna feel like a kid again.jpg" alt="Photo 1">
-  <img src="folder4/great.jpg" alt="Photo 2">
+  <img src="thumbnails1/i wanna feel like a kid again1.jpg" 
+       data-full="folder4/i wanna feel like a kid again.jpg" 
+       alt="Photo 1" loading="lazy">
+       
+  <img src="thumbnails1/great1.jpg" 
+       data-full="folder4/great.jpg" 
+       alt="Photo 2" loading="lazy">
 </section>
 
  <!-- Lightbox -->
@@ -403,28 +408,28 @@ a:hover {
     const navRight = document.getElementById('nav-right');
     let currentIndex = 0;
 
-          // Open lightbox
-    galleryImages.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        currentIndex = index;
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-      });
-    });
+// Open lightbox
+galleryImages.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.dataset.full; // use full-size image only on click
+  });
+});
 
-      // Navigate left
-    navLeft.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      lightboxImg.src = galleryImages[currentIndex].src;
-    });
+// Navigate left
+navLeft.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex].dataset.full;
+});
 
-    // Navigate right
-    navRight.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      lightboxImg.src = galleryImages[currentIndex].src;
-    });
+// Navigate right
+navRight.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentIndex].dataset.full;
+});
 
     // Close by clicking outside image
     lightbox.addEventListener('click', (e) => {
