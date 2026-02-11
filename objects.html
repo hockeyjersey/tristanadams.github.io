@@ -400,26 +400,10 @@ a:hover {
   nav.top-nav { transform: translateX(-1px); }
 }
 
-/* Galaxy Z Fold 5 (folded) – 344px wide */
-@media (max-width: 344px) {
-  nav.top-nav {
-    transform: translateX(-2px);  /* nudge left */
-  }
-}
-
-/* iPhone SE (375px wide) */
-@media (min-width: 375px) and (max-width: 375px) {
-  nav.top-nav {
-    transform: translateX(-1px);  /* tiny left nudge */
-  }
-}
-
-/* iPhone 12 Pro (390px wide) */
-@media (min-width: 390px) and (max-width: 390px) {
-  nav.top-nav {
-    transform: translateX(-2px);  /* slightly more left */
-  }
-}
+/* Medium phones (iPhone XR, Galaxy S8+/similar) */
+@media (min-width: 401px) and (max-width: 440px) {
+  nav.top-nav { transform: translateX(-2px); /* nudge right slightly */
+  
 
 /* Large phones (iPhone 14 Pro Max, Pixel 7, similar) */
 @media (min-width: 441px) and (max-width: 480px) {
