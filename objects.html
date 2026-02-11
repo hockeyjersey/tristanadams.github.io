@@ -412,18 +412,13 @@ a:hover {
   }
 }
 
-/* Pixel 7 + s20 only */
-@media only screen 
-  and (device-width: 412px) 
-  and (device-height: 915px) 
-  and (-webkit-device-pixel-ratio: 2) {
-
+/* Responsive tweak for very narrow phones (approx 320px wide) */
+@media (max-width: 320px) {
   nav.top-nav {
-    transform: translateX(2px); /* adjust left/right as needed */
+    transform: translateX(-20px); /* adjust as needed */
   }
 }
 
-    
   </style>
 </head>
 
