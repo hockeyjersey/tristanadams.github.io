@@ -391,22 +391,15 @@ a:hover {
   }
 }
 
-/* iPhone only */
-@supports (-webkit-touch-callout: none) {
+/* Z Fold 5 (small front screen Android) */
+@media only screen 
+  and (min-device-width: 344px) 
+  and (max-device-width: 344px) {
 
-  /* iPhone SE (375px) – tiny nudge */
-  @media (max-width: 380px) {
-    nav.top-nav {
-      transform: translateX(-1px);
-    }
-  }
-
-  /* iPhone 12 Pro (390px) – medium nudge */
-  @media (min-width: 381px) and (max-width: 400px) {
     nav.top-nav {
       transform: translateX(-2px);
     }
-  }
+}
     
   </style>
 </head>
