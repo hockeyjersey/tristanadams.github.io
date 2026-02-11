@@ -400,6 +400,17 @@ a:hover {
       transform: translateX(-5.5px);
     }
 }
+
+/* iPhone SE only */
+@media only screen 
+  and (device-width: 375px) 
+  and (device-height: 667px) 
+  and (-webkit-device-pixel-ratio: 2) {
+
+  nav.top-nav {
+    transform: translateX(-2px); /* adjust as needed */
+  }
+}
     
   </style>
 </head>
