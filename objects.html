@@ -381,8 +381,8 @@ a:hover {
 
 /* Medium phones (iPhone XR, Galaxy S8+/similar) */
 @media (min-width: 401px) and (max-width: 440px) {
-  nav.top-nav { transform: translateX(-2px); /* nudge right slightly */
-  
+  nav.top-nav { transform: translateX(-2px); }
+}
 
 /* Large phones (iPhone 14 Pro Max, Pixel 7, similar) */
 @media (min-width: 441px) and (max-width: 480px) {
@@ -391,26 +391,22 @@ a:hover {
   }
 }
 
-/* FINAL OVERRIDES – device nudges */
-@media (max-width: 344px) {
-  nav.top-nav {
-    transform: translateX(-10px) !important;
-  }
-}
+/* iPhone only */
+@supports (-webkit-touch-callout: none) {
 
-/* iPhone SE (375px wide) */
-@media (min-width: 375px) and (max-width: 375px) {
-  nav.top-nav {
-    transform: translateX(-1px);  /* tiny left nudge */
+  /* iPhone SE (375px) – tiny nudge */
+  @media (max-width: 380px) {
+    nav.top-nav {
+      transform: translateX(-1px);
+    }
   }
-}
 
-/* iPhone 12 Pro (390px wide) */
-@media (min-width: 390px) and (max-width: 390px) {
-  nav.top-nav {
-    transform: translateX(-10px);  /* slightly more left */
+  /* iPhone 12 Pro (390px) – medium nudge */
+  @media (min-width: 381px) and (max-width: 400px) {
+    nav.top-nav {
+      transform: translateX(-2px);
+    }
   }
-}
     
   </style>
 </head>
