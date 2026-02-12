@@ -254,26 +254,10 @@ nav.top-nav a.current {
 }
 
 @media (max-width: 600px) {
-  nav.top-nav {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    gap: 6px 12px;
-    padding: 12px 16px;
-    margin: 0 auto;
-    justify-content: center;
-    transform: none !important;  /* hard reset any leftover nudges */
-  }
-
-  nav.top-nav .left-links,
-  nav.top-nav .right-links {
-    display: contents;
-  }
-
-  nav.top-nav a {
-    margin: 0;
-    text-align: center;
-    white-space: nowrap;
+  body.publication-page nav.top-nav {
+    transform: translateX(0px) !important;
+    justify-content: center !important;
+    padding-left: 10px !important;
   }
 }
 
