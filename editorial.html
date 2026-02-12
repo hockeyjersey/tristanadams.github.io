@@ -297,6 +297,36 @@ nav.top-nav a.current {
   }
 }
 
+@media (max-width: 600px) {
+  nav.top-nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: center;   /* centers the grid itself */
+    margin: 0 auto;            /* centers the nav container */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    transform: none !important;
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: contents;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.top-nav {
+    transform: translateX(5px) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;  /* prevent any horizontal scroll on page */
+  }
+}
+
   </style>
 </head>
 
