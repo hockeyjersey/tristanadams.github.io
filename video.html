@@ -363,30 +363,31 @@ a:hover {
 
 @media (max-width: 600px) {
   nav.top-nav {
-    width: 100%;                  /* full width of viewport */
-    display: flex;                 /* flex is easier to center content */
-    justify-content: center;       /* center left + right links */
-    flex-wrap: wrap;               /* allow wrapping if needed */
-    gap: 12px;                     /* space between link groups */
-    padding: 8px 0;                /* small top/bottom padding */
-    margin: 0;                     /* remove extra margins */
-    box-sizing: border-box;        /* padding included in width */
-    transform: none !important;    /* remove old nudges */
-    overflow-x: hidden;            /* prevent horizontal scroll */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: center;   /* centers the grid itself */
+    margin: 0 auto;            /* centers the nav container */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    transform: none !important;
   }
 
   nav.top-nav .left-links,
   nav.top-nav .right-links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: contents;
   }
+}
 
-  nav.top-nav a {
-    margin: 0;
-    white-space: nowrap;           /* keep link text on one line */
-    text-align: center;
+@media (max-width: 600px) {
+  nav.top-nav {
+    transform: translateX(7px) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;  /* prevent any horizontal scroll on page */
   }
 }
    
