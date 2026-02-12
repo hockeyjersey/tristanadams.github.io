@@ -361,67 +361,27 @@ a:hover {
   }
 }
 
-/* super small phones */
-@media (max-width: 360px) {
-  nav.top-nav { transform: translateX(-2.5px); }
-}
-
-/* slightly bigger narrow phones */
-@media (min-width: 361px) and (max-width: 400px) {
-  nav.top-nav { transform: translateX(-1px); }
-}
-
-/* Medium phones (iPhone XR, Galaxy S8+/similar) */
-@media (min-width: 401px) and (max-width: 440px) {
-  nav.top-nav { transform: translateX(-2px); }
-}
-
-/* Large phones (iPhone 14 Pro Max, Pixel 7, similar) */
-@media (min-width: 441px) and (max-width: 480px) {
+@media (max-width: 600px) {
   nav.top-nav {
-    transform: translateX(-1px); /* nudge right slightly more */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: center;   /* centers the grid itself */
+    margin: 0 auto;            /* centers the nav container */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    transform: none !important;
+  }
+
+  nav.top-nav .left-links,
+  nav.top-nav .right-links {
+    display: contents;
   }
 }
 
-/* Z Fold 5 (small front screen Android) */
-@media only screen 
-  and (min-device-width: 344px) 
-  and (max-device-width: 344px) {
-
-    nav.top-nav {
-      transform: translateX(-5.5px);
-    }
-}
-
-/* iPhone SE only */
-@media only screen 
-  and (device-width: 375px) 
-  and (device-height: 667px) 
-  and (-webkit-device-pixel-ratio: 2) {
-
+@media (max-width: 600px) {
   nav.top-nav {
-    transform: translateX(-2px); /* adjust as needed */
-  }
-}
-
-/* Responsive tweak for very narrow phones (approx 320px wide) */
-@media (max-width: 320px) {
-  nav.top-nav {
-    transform: translateX(-16px); /* adjust as needed */
-  }
-}
-
-/* Phones around 375px width */
-@media (min-width: 370px) and (max-width: 379px) {
-  nav.top-nav {
-    transform: translateX(-2px); /* nudge left or right as needed */
-  }
-}
-
-/* Only devices exactly 412px wide */
-@media (width: 412px) {
-  nav.top-nav {
-    transform: translateX(0px); /* adjust left/right as needed */
+    transform: translateX(10px) !important;
   }
 }
    
