@@ -349,16 +349,45 @@ nav.top-nav a.current {
 </nav>
 
 <section class="editorial-gallery">
-  <img src="folder2/rph1.jpg" alt="Photo 1">
-  <img src="folder2/rph8.jpg" alt="Photo 4">
-  <img src="folder2/rph7.jpg" alt="Photo 2">
-  <img src="folder2/rph3.jpg" alt="Photo 3">
-  <img src="folder2/rph6.jpg" alt="Photo 4">
-  <img src="folder2/rpisc2.jpg" alt="Photo 5">
-  <img src="folder2/rpisc3.jpg" alt="Photo 6">
-  <img src="folder2/rph5.jpg" alt="Photo 7">
-  <img src="folder2/rpisc1.jpg" alt="Photo 9">
-  <img src="folder/rpf7.jpg" alt="Photo 10">
+  <img src="thumbnails2/rph1.jpg"
+       data-full="folder2/rph1.jpg"
+       alt="Photo 1" loading="lazy">
+
+  <img src="thumbnails2/rph8.jpg"
+       data-full="folder2/rph8.jpg"
+       alt="Photo 2" loading="lazy">
+
+  <img src="thumbnails2/rph7.jpg"
+       data-full="folder2/rph7.jpg"
+       alt="Photo 3" loading="lazy">
+
+  <img src="thumbnails2/rph3.jpg"
+       data-full="folder2/rph3.jpg"
+       alt="Photo 4" loading="lazy">
+
+  <img src="thumbnails2/rph6.jpg"
+       data-full="folder2/rph6.jpg"
+       alt="Photo 5" loading="lazy">
+
+  <img src="thumbnails2/rpisc2.jpg"
+       data-full="folder2/rpisc2.jpg"
+       alt="Photo 6" loading="lazy">
+
+  <img src="thumbnails2/rpisc3.jpg"
+       data-full="folder2/rpisc3.jpg"
+       alt="Photo 7" loading="lazy">
+
+  <img src="thumbnails2/rph5.jpg"
+       data-full="folder2/rph5.jpg"
+       alt="Photo 8" loading="lazy">
+
+  <img src="thumbnails2/rpisc1.jpg"
+       data-full="folder2/rpisc1.jpg"
+       alt="Photo 9" loading="lazy">
+
+  <img src="thumbnails2/rpf7.jpg"
+       data-full="folder/rpf7.jpg"
+       alt="Photo 10" loading="lazy">
 </section>
 
  <!-- Lightbox -->
@@ -368,43 +397,62 @@ nav.top-nav a.current {
     <div id="nav-right">&#10095;</div>
   </div>
 
-  <!-- JS -->
-  <script>
-    const galleryImages = document.querySelectorAll('.editorial-gallery img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const navLeft = document.getElementById('nav-left');
-    const navRight = document.getElementById('nav-right');
-    let currentIndex = 0;
+<!-- JS -->
+<script>
+  const galleryImages = document.querySelectorAll('.editorial-gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const navLeft = document.getElementById('nav-left');
+  const navRight = document.getElementById('nav-right');
+  let currentIndex = 0;
 
-    // Open lightbox
-    galleryImages.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        currentIndex = index;
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-      });
+  function preloadImage(src) {
+    const img = new Image();
+    img.src = src;
+  }
+
+  // Optional: preload first image so first click feels instant
+  if (galleryImages.length > 0) {
+    preloadImage(galleryImages[0].dataset.full);
+  }
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.dataset.full;
+
+      const nextIndex = (currentIndex + 1) % galleryImages.length;
+      const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+
+      preloadImage(galleryImages[nextIndex].dataset.full);
+      preloadImage(galleryImages[prevIndex].dataset.full);
     });
+  });
 
-    // Navigate left
-    navLeft.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      lightboxImg.src = galleryImages[currentIndex].src;
-    });
+  navRight.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].dataset.full;
 
-    // Navigate right
-    navRight.addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      lightboxImg.src = galleryImages[currentIndex].src;
-    });
+    const nextIndex = (currentIndex + 1) % galleryImages.length;
+    preloadImage(galleryImages[nextIndex].dataset.full);
+  });
 
-    // Close by clicking outside image
+  navLeft.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].dataset.full;
+
+    const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    preloadImage(galleryImages[prevIndex].dataset.full);
+  });
+
+  // Close by clicking outside image
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) lightbox.style.display = 'none';
     });
-  </script>
+</script>
   
 </body>
 </html>
