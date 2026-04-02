@@ -53,6 +53,13 @@ body {
   scrollbar-color: blue #ff64f1;       /* thumb color, track color */
 }
 
+/* Desktop: disable vertical scrolling */
+@media (min-width: 601px) {
+  body, html {
+    overflow-y: hidden;
+  }
+}
+
 /* Mobile: enable vertical scrolling */
 @media (max-width: 600px) {
   body, html {
