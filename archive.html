@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>journal - tristan adams</title>
+  <title>archive - tristan adams</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <style>
@@ -17,7 +17,7 @@
     }
      
 /* Make gallery images show clickable cursor */
-.editorial-gallery img {
+.archive-gallery img {
   cursor: pointer;
 }
 
@@ -165,7 +165,7 @@ nav.top-nav a.current {
   }
 }
 
-.editorial-gallery {
+.archive-gallery {
   display: flex;
   gap: 20px;
   padding: 120px 0px 40px 0px; /* spacing from nav & edges */
@@ -175,7 +175,7 @@ nav.top-nav a.current {
   box-sizing: border-box;          /* include padding in width */
 }
 
-.editorial-gallery img {
+.archive-gallery img {
   height: 300px;
   width: auto;        /* keep natural aspect ratio */
   object-fit: contain;  /* crop if needed to fill height */
@@ -219,7 +219,7 @@ nav.top-nav a.current {
 #nav-right { right: 20px; }
   
 /* Make gallery images clickable */
-.editorial-gallery img {
+.archive-gallery img {
   cursor: pointer;
 }
   
@@ -238,13 +238,13 @@ nav.top-nav a.current {
 
 @media (max-width: 600px) {
   /* stack gallery images vertically on mobile */
-  .editorial-gallery {
+  .archive-gallery {
     flex-direction: column;
     gap: 15px;      /* optional: smaller gap between images */
     padding: 100px 20px 40px 20px; /* adjust padding for mobile */
   }
 
-  .editorial-gallery img {
+  .archive-gallery img {
     width: 100%;     /* full width on mobile */
     height: auto;    /* maintain aspect ratio */
   }
@@ -279,7 +279,7 @@ nav.top-nav a.current {
     padding-top: 30px;  /* reduce top padding on mobile */
   }
 
-  .editorial-gallery {
+  .archive-gallery {
     padding-top: 40px;  /* reduce extra space above images */
   }
 }
@@ -335,8 +335,8 @@ nav.top-nav a.current {
 <nav class="top-nav">
   <div class="left-links">
     <a href="index.html">home</a>
-    <a href="editorial.html">editorial</a>
-    <a href="journal.html" class="current">journal</a>
+    <a href="work.html">work</a>
+    <a href="archive.html" class="current">archive</a>
     <a href="publication.html">publication</a>
     <a href="video.html">video</a>
     <a href="objects.html">objects</a>
@@ -348,7 +348,7 @@ nav.top-nav a.current {
   </div>
 </nav>
 
-<section class="editorial-gallery">  
+<section class="archive-gallery">  
   <img src="thumbnails3/rpisc3.1.jpg"
        data-full="folder2/rpisc3.jpg"
        alt="Photo 2" loading="lazy">
@@ -391,7 +391,7 @@ nav.top-nav a.current {
 
 <!-- JS -->
 <script>
-  const galleryImages = document.querySelectorAll('.editorial-gallery img');
+  const galleryImages = document.querySelectorAll('.archive-gallery img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const navLeft = document.getElementById('nav-left');
