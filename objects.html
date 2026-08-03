@@ -60,6 +60,16 @@ body {
   }
 }
 
+@media (min-width: 601px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    scrollbar-width: none;
+  }
+}
+
 /* Mobile: enable vertical scrolling */
 @media (max-width: 600px) {
   body, html {
