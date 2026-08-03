@@ -17,7 +17,7 @@
     }
 
 /* Make gallery images show clickable cursor */
-.editorial-gallery img {
+.video-gallery img {
   cursor: pointer;
 }
 
@@ -166,7 +166,7 @@ nav.top-nav a.current {
   }
 }
    
-.editorial-gallery {
+.video-gallery {
   display: flex;
   gap: 20px;
   padding: 120px 0px 40px 0px; /* spacing from nav & edges */
@@ -176,7 +176,7 @@ nav.top-nav a.current {
   box-sizing: border-box;          /* include padding in width */
 }
 
-.editorial-gallery img {
+.video-gallery img {
   height: 300px;
   width: auto;        /* keep natural aspect ratio */
   object-fit: contain;  /* crop if needed to fill height */
@@ -184,10 +184,10 @@ nav.top-nav a.current {
 }
 
 @media (max-width: 600px) {
-  .editorial-gallery {
+  .video-gallery {
     flex-direction: column;  /* stack images on mobile */
   }
-  .editorial-gallery img {
+  .video-gallery img {
     width: 100%;
     height: auto;
   }
@@ -230,7 +230,7 @@ nav.top-nav a.current {
 #nav-right { right: 20px; }
 
 /* Make gallery images clickable */
-.editorial-gallery img {
+.video-gallery img {
   cursor: pointer;
 }
 
@@ -266,13 +266,13 @@ a:hover {
 
 @media (max-width: 600px) {
   /* stack gallery images vertically on mobile */
-  .editorial-gallery {
+  .video-gallery {
     flex-direction: column;
     gap: 15px;      /* optional: smaller gap between images */
     padding: 100px 20px 40px 20px; /* adjust padding for mobile */
   }
 
-  .editorial-gallery img {
+  .video-gallery img {
     width: 100%;     /* full width on mobile */
     height: auto;    /* maintain aspect ratio */
   }
@@ -307,7 +307,7 @@ a:hover {
     padding-top: 30px;  /* reduce top padding on mobile */
   }
 
-  .editorial-gallery {
+  .video-gallery {
     padding-top: 40px;  /* reduce extra space above images */
   }
 }
@@ -399,8 +399,8 @@ a:hover {
 <nav class="top-nav">
   <div class="left-links">
     <a href="index.html">home</a>
-    <a href="editorial.html">editorial</a>
-    <a href="journal.html">journal</a>
+    <a href="work.html">work</a>
+    <a href="archive.html">archive</a>
     <a href="publication.html">publication</a>
     <a href="video.html" class="current">video</a>
     <a href="objects.html">objects</a>
@@ -412,7 +412,7 @@ a:hover {
   </div>
 </nav>
 
-<section class="editorial-gallery">       
+<section class="video-gallery">       
   <img src="thumbnails1/great1.jpg" 
        data-full="folder4/great.jpg" 
        alt="Photo 2" loading="lazy">
@@ -431,7 +431,7 @@ a:hover {
 
     <!-- JS -->
 <script>
-  const galleryImages = document.querySelectorAll('.editorial-gallery img');
+  const galleryImages = document.querySelectorAll('.video-gallery img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const navLeft = document.getElementById('nav-left');
